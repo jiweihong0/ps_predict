@@ -1,0 +1,54 @@
+// create header compoent
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import './header.css';
+import man from '../assets/man.png';
+import Xray from '../assets/Xray.png';
+
+export default function Header() {
+    const { currentUser, logout } = useAuth();
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        try {
+            await logout();
+            navigate('/login');
+        } catch {
+            console.log('Failed to log out');
+        }
+    }
+
+    return (
+        <header className="header">
+            <div className="header__logo">
+                <img  src={Xray} alt="no image" />
+                <Link className='header__logo__text' to="/">PS症狀分析</Link>
+            </div>
+            <div className="header__links">
+                {currentUser ? (
+                    <div className='link_all'>
+                        <div className='header_links'>
+
+                            <Link className='link' to="/login">骨盆偵測</Link>
+                            <Link className='link' to="/login">檢測紀錄</Link>
+                            <Link className='link' to="/login">復健動作</Link>
+                            <Link to="/login">脊椎偵測</Link>
+                        </div>
+                        <div className='userinfo'>
+                            <img src={man} alt="no image" />
+                            <button onClick={handleLogout}>Log Out</button>
+                        </div>
+                    </div>
+
+                ) : (
+                    <div>
+                        <Link to="/signin">Sign In</Link>
+                        <Link to="/login">Log In</Link>
+                    </div>
+                )}
+            </div>
+        </header>
+    );
+}
