@@ -1,0 +1,73 @@
+.frame-6 {
+    height: 100%;
+    width: 100%;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  .loginimage {
+    height: 100%;
+    width: 100%;
+    background-color: #fffdf5;
+    position: relative;
+  }
+  .text-1 {
+    text-align: left;
+    vertical-align: top;
+    font-size: 45px;
+    font-family: Inter;
+    line-height: auto;
+    color: #498a7e;
+    position: absolute;
+    left: 130px;
+    top: 550px;
+    font-weight: bold;
+
+  }
+  .group-1-1 {
+    height: 113px;
+    width: 359px;
+    top: 150px;
+    left: 130px;
+    position: absolute;
+    z-index: 1;
+  }
+  .text-2 {
+    text-align: left;
+    vertical-align: top;
+    font-size: 32px;
+    font-family: Inter;
+    line-height: auto;
+    color: #498a7e;
+    font-weight: bold;
+  }
+  .text-3 {
+    text-align: left;
+    vertical-align: top;
+    font-size: 32px;
+    font-family: Inter;
+    line-height: auto;
+    color: #498a7e;
+    font-weight: bold;
+  }
+  .img-4 {
+    height: 72px;
+    width: 71px;
+  }
+  .imgVector {
+    position: relative;
+  }
+  .imgVectorBottom{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .psword{
+    display: inline-flex;
+    align-items: center;
+  }
+  .bone{
+    height: 40%;
+    width: 40%;
+    position: absolute;
+    top: 300px;
+    left: 150px;
+  }

@@ -1,0 +1,74 @@
+.frame-6-signin {
+    height: 100%;
+    width: 100%;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  .Signimage {
+    height: 100%;
+    width: 100%;
+    background-color: #ECFEFC;
+    position: relative;
+  }
+  .s-text-1 {
+    text-align: left;
+    vertical-align: top;
+    font-size: 45px;
+    font-family: Inter;
+    line-height: auto;
+    color: #5F5853;
+    position: absolute;
+    left: 130px;
+    top: 550px;
+    font-weight: bold;
+    z-index: 1;
+
+  }
+  .s-group-1-1 {
+    height: 113px;
+    width: 359px;
+    top: 150px;
+    left: 130px;
+    position: absolute;
+    z-index: 1;
+  }
+  .s-text-2 {
+    text-align: left;
+    vertical-align: top;
+    font-size: 32px;
+    font-family: Inter;
+    line-height: auto;
+    color: #5F5853;
+    font-weight: bold;
+  }
+  .s-text-3 {
+    text-align: left;
+    vertical-align: top;
+    font-size: 32px;
+    font-family: Inter;
+    line-height: auto;
+    color: #5F5853;
+    font-weight: bold;
+  }
+  .img-4 {
+    height: 72px;
+    width: 71px;
+  }
+  .imgVector {
+    position: relative;
+  }
+  .imgVectorBottom{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .s-psword{
+    display: inline-flex;
+    align-items: center;
+  }
+  .s-bone{
+    height: 40%;
+    width: 40%;
+    position: absolute;
+    top: 300px;
+    left: 150px;
+  }
