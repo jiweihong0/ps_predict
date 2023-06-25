@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import Recordcard from '../components/Reacordcard';
+import Recordcardlist from '../components/Recordcardlist';
 
 export default function RecordPage() {
     const { currentUser, logout } = useAuth();
@@ -21,7 +21,7 @@ export default function RecordPage() {
     return (
         <div>
             <Header />
-            <Recordcard/>
+            <Recordcardlist/>
             
         </div>
     );

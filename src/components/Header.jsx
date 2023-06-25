@@ -38,14 +38,14 @@ export default function Header() {
                         </div>
                         <div className='userinfo'>
                             <img src={man} alt="no image" />
-                            <button onClick={handleLogout}>Log Out</button>
+                            <button onClick={handleLogout}>王小明</button>
                         </div>
                     </div>
 
                 ) : (
                     <div>
-                        <Link to="/signin">Sign In</Link>
-                        <Link to="/login">Log In</Link>
+                        <Link to="/signin">註冊</Link>
+                        <Link to="/login">登入</Link>
                     </div>
                 )}
             </div>
