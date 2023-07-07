@@ -4,7 +4,7 @@ import right from '../assets/right.png';
 import correct from '../assets/correct.png';
 import Recorddetail from "./Recorddetail";
 
-export default function Recordcard() {
+export default function Recordcard(props) {
     const [toggle, settoggle] = useState(false);
     
     const handleimgclick = () => {
@@ -16,7 +16,7 @@ export default function Recordcard() {
     return (
         <>
         {toggle ? (
-            <Recorddetail detailstate={showdetail}/>
+            <Recorddetail detailstate={showdetail} data={props.data}/>
             ) :(
                 <div className="recordcard" onClick={showdetail}>
                     <div>

@@ -31,10 +31,10 @@ export default function Header() {
                     <div className='link_all'>
                         <div className='header_links'>
 
-                            <Link className='link' to="/login">骨盆偵測</Link>
-                            <Link className='link' to="/login">檢測紀錄</Link>
-                            <Link className='link' to="/login">復健動作</Link>
-                            <Link to="/login">脊椎偵測</Link>
+                            <Link className='link' to="/spine">骨盆偵測</Link>
+                            <Link className='link' to="/">檢測紀錄</Link>
+                            <Link className='link' to="/">復健動作</Link>
+                            <Link to="/pelvis">脊椎偵測</Link>
                         </div>
                         <div className='userinfo'>
                             <img src={man} alt="no image" />

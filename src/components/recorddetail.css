@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* 半透明背景顏色 */
+    background: rgba(0, 0, 0, 0); /* 半透明背景顏色 */
     z-index: 9999; /* 設定適當的層級以覆蓋其他內容 */
     display: flex;
     align-items: center;
@@ -12,14 +12,81 @@
   }
   
 .recorddetail{
-    width: 500px;
-    background: white;
-    border: 1px solid #ccc;
-    transition: 1.1s ease-out;
-    box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
-    filter: blur(0);
-    transform: scale(1);
-    opacity: 1;
-    visibility: visible;
+    margin-top:9%;
+    width: 81%;
+    height: 76%;
+    background-color: #FFE7CC;
+    border-radius: 20px;    
+    
   
+}
+.recorddetail__content__area{   
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5% 0 10%;
+    
+}
+.recorddetail__content__area__top{   
+   display: flex;
+   justify-content: space-between;
+   padding: 0 5% 0 5%;
+}
+.recorddetail__title{
+    font-size: 45px;
+    font-weight: bold;
+    color: #333333;
+    margin-right: 41%;
+    margin-top: 3%;
+    margin-bottom: 12px;
+}
+.recorddetail__button{
+    color: #333333;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 3%;
+}
+.recorddetail__button:hover{
+    color: #FF9685;
+}
+
+.recorddetail__content>h2{
+    margin-top: 2%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+}
+/* last h2 margin top 5px */
+.recorddetail__content>h2:last-child{
+    margin-top: 20%;
+}
+.recorddetail__line{
+    width: 9%;
+    height: 6px;
+    margin-left: 35%;
+    margin-top: 4.9%;
+    background-color: #C5BBBB;
+    position: absolute;
+    transform: rotate(90deg);
+    border-radius: 6px;
+
+}
+.recorddetail__line2{
+    width: 9%;
+    height: 6px;
+    margin-left: 35%;
+    margin-top: 16.5%;
+    background-color: #C5BBBB;
+    position: absolute;
+    transform: rotate(90deg);
+    border-radius: 6px;
+}
+.recorddetail__line3{
+    width: 9%;
+    height: 6px;
+    margin-left: 35%;
+    margin-top: 27.9%;
+    background-color: #C5BBBB;
+    position: absolute;
+    transform: rotate(90deg);
+    border-radius: 6px;
 }
