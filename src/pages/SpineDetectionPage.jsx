@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import SpineDetectioncard from "../components/SpineDetectioncard";
 
 
 function SpineDetectionPage() {
@@ -17,9 +18,10 @@ function SpineDetectionPage() {
         }
     }
     return ( 
-        <>
+        <div style={{backgroundColor:"#FFFBEB", width:"100%",height:"100vh"}}>
             <Header />
-        </>
+            <SpineDetectioncard/>
+        </div>
     );
 }
 

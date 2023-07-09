@@ -1,0 +1,98 @@
+
+.spinedetectioncard{
+    width: 100%;
+    height: 100%;
+    background-color: #FFFBEB;
+}
+.spinedetectioncard__content__area{   
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5% 0 10%;
+    margin-top: 3%;
+    background-color: #FFFBEB;
+    
+}
+.spinedetectioncard__content__area__top{   
+   display: flex;
+   justify-content: space-between;
+   padding: 0 5% 0 5%;
+}
+.spinedetectioncard__title{
+    font-size: 45px;
+    font-weight: bold;
+    color: #333333;
+    margin-right: 41%;
+    margin-top: 3%;
+    margin-bottom: 12px;
+}
+.spinedetectioncard__button{
+    color: #333333;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 3%;
+}
+.spinedetectioncard__button:hover{
+    color: #FF9685;
+}
+
+.spinedetectioncard__content>h2{
+    margin-top: 2%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+}
+.spinedetectioncard__picture{
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 50%;
+    height: 90%;
+    background-color: #FFE7CC;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-right: 3%;
+}
+/* last h2 margin top 5px */
+.spinedetectioncard__content>button{
+    margin-left: 32%;
+    margin-top: 23%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFE7CC;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1px 20px;
+}
+.spinedetectioncard__line{
+    width: 9%;
+    height: 6px;
+    margin-left: 35%;
+    margin-top: 4.9%;
+    background-color: #C5BBBB;
+    position: absolute;
+    transform: rotate(90deg);
+    border-radius: 6px;
+
+}
+.spinedetectioncard__line2{
+    width: 9%;
+    height: 6px;
+    margin-left: 35%;
+    margin-top: 16.5%;
+    background-color: #C5BBBB;
+    position: absolute;
+    transform: rotate(90deg);
+    border-radius: 6px;
+}
+.spinedetectioncard__line3{
+    width: 9%;
+    height: 6px;
+    margin-left: 35%;
+    margin-top: 27.9%;
+    background-color: #C5BBBB;
+    position: absolute;
+    transform: rotate(90deg);
+    border-radius: 6px;
+}
