@@ -15,9 +15,7 @@ export default function Recordcard(props) {
     }
     return (
         <>
-        {toggle ? (
-            <Recorddetail detailstate={showdetail} data={props.data}/>
-            ) :(
+        
                 <div className="recordcard" onClick={showdetail}>
                     <div>
                         <div className="recordcard__title">
@@ -32,7 +30,9 @@ export default function Recordcard(props) {
                         <img className = "right" src={right} alt="" onClick={handleimgclick} />
                     </div>
                 </div>
-            )}
+                {toggle ? (
+            <Recorddetail detailstate={showdetail} data={props.data}/>
+            ) :(console.log("no"))}
         </>)
         
 }
