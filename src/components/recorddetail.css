@@ -4,17 +4,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0); /*半透明背景顏色*/
+    background: rgba(0, 0, 0, 0.5); /*半透明背景顏色*/
     z-index: 2; /*設定適當的層級以覆蓋其他內容*/
     display: flex;
     align-items: center;
     justify-content: center;
-   
-   
   }
   
 .recorddetail{
-
+    box-shadow: inset;
     width: 81%;
     /* height: 76%; */
     background-color: #FFE7CC;
