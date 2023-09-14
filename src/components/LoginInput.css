@@ -8,6 +8,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-height: 439px;
+    max-width: 382px;
+    height: 100%;
+    width: 100%;
   }
   .text-1 {
     text-align: left;
@@ -99,12 +103,14 @@
     width: 25vw;
     height: 10vh;
     margin-bottom: 35px;
+    margin-left: 30%;
 }
 .email-frame{
     position: relative;
     width: 25vw;
     height: 10vh;
     margin-bottom: 6px;
+    margin-left: 30%;
 }
 .imgman{
     height: 56px;

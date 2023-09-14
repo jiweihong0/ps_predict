@@ -8,6 +8,7 @@
     width: 100%;
     background-color: #fffdf5;
     position: relative;
+    overflow: hidden;
   }
   .text-1 {
     text-align: left;
@@ -17,8 +18,8 @@
     line-height: auto;
     color: #498a7e;
     position: absolute;
-    left: 130px;
-    top: 550px;
+    left: 120px;
+    top: 610px;
     font-weight: bold;
 
   }
@@ -58,7 +59,7 @@
   .imgVectorBottom{
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -5%;
   }
   .psword{
     display: inline-flex;
