@@ -26,14 +26,14 @@ export default function Header() {
                 <img  src={Xray} alt="no image" />
                 <Link className='header__logo__text' to="/">PS症狀分析</Link>
             </div>
-            <div className="header__links">
+            <div className="header__links">  
                 {currentUser ? (
                     <div className='link_all'>
                         <div className='header_links'>
 
                             <Link className='link' to="/spine">骨盆偵測</Link>
                             <Link className='link' to="/">檢測紀錄</Link>
-                            <Link className='link' to="/">復健動作</Link>
+                            <Link className='link' to="/Rehabilitation">復健動作</Link>
                             <Link to="/pelvis">脊椎偵測</Link>
                         </div>
                         <div className='userinfo'>

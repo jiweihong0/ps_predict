@@ -7,11 +7,14 @@ import Recorddetail from "./Recorddetail";
 export default function Recordcard(props) {
     const [toggle, settoggle] = useState(false);
     
-    const handleimgclick = () => {
-        console.log("click");
-    }
-    const showdetail = () => {
+
+    const showdetail = (e) => {
+        e.stopPropagation();
        settoggle(!toggle);
+    }
+    const consistdetail = (e) => {   
+        e.stopPropagation();
+        settoggle(toggle);
     }
     return (
         <>
@@ -27,11 +30,11 @@ export default function Recordcard(props) {
                         </div>
                     </div>
                     <div>
-                        <img className = "right" src={right} alt="" onClick={handleimgclick} />
+                        <img className = "right" src={right} alt="" />
                     </div>
                 </div>
                 {toggle ? (
-            <Recorddetail detailstate={showdetail} data={props.data}/>
+            <Recorddetail detailstate={showdetail} consistdetail = {consistdetail} data={props.data}/>
             ) :(console.log("no"))}
         </>)
         

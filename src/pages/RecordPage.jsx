@@ -20,7 +20,7 @@ export default function RecordPage() {
     }
     
     return (
-        <div>
+        <div >
             <Header />
             <Recordcardlist/>
             <Footer/>

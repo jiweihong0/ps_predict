@@ -4,10 +4,10 @@ import redress from '../assets/redress.png';
 
 export default function Recorddetail(props) {
     const detailstate = props.detailstate;
-    console.log(props.data);
+    const consistdetail = props.consistdetail;
     return (
-        <div className="modal-overlay">
-            <div className="recorddetail">
+        <div className="modal-overlay" onClick={detailstate} >
+            <div className="recorddetail"onClick={consistdetail} >
                 <div className="recorddetail__content__area__top">
                     <div className="recorddetail__button">
                         <button onClick={detailstate}>{"<"} 返回</button>

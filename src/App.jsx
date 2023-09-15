@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage"
 import RecordPage from "./pages/RecordPage"
 import PelvisDetectionPage from "./pages/PelvisDetectionPage"
 import SpineDetectionPage from "./pages/SpineDetectionPage"
+import RehabilitationPage from "./pages/RehabilitationPage"
 
 
 
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/signin" element={<SigninPage />} />
         <Route path="/pelvis" element={<PelvisDetectionPage/>}></Route>
         <Route path="/Spine" element={<SpineDetectionPage/>}></Route>
+        <Route path="/Rehabilitation" element={<RehabilitationPage/>}></Route>
       </Routes>
 
 
