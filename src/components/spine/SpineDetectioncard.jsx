@@ -8,6 +8,8 @@ export default function SpineDetectioncard() {
     const [selectedFile, setSelectedFile] = useState(null);
     const { upload, isupload } = useUploadSpine(); // 調用 useLogin 自訂 Hook 並解構返回值
 
+    const [toggle, settoggle] = useState(false);
+
     const handleFileChange = (e) => {
         // 使用事件處理程序來捕獲所選文件
         const file = e.target.files[0];
@@ -22,12 +24,31 @@ export default function SpineDetectioncard() {
         upload(file); // 調用 login 函數    
     }
 
+    const handleCamera = (e) => {
+        e.preventDefault();
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            settoggle({ photoURL: e.target.result });
+            setSelectedFile(file);
+          };
+          reader.readAsDataURL(file);
+    }
+    }
+   
+
 
     return (
         <div className="spinedetectioncard">
             <div className="spinedetectioncard__content__area">
                 <div className="spinedetectioncard__picture">
-                    <img src={spine} alt="" />
+                    
+                    <input type="file" accept="image/*" capture="camera" onChange={handleCamera} />
+                    {
+                        toggle && <img src={toggle.photoURL} alt="" />
+                        
+                    }
                 </div>
                 <div>
                     <div className="spinedetectioncard__content">
