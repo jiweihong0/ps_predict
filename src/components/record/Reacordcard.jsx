@@ -7,7 +7,6 @@ import Recorddetail from "./Recorddetail";
 export default function Recordcard(props) {
     const [toggle, settoggle] = useState(false);
     
-
     const showdetail = (e) => {
         e.stopPropagation();
        settoggle(!toggle);
@@ -26,7 +25,7 @@ export default function Recordcard(props) {
                             <img src={correct} alt="" />
                         </div>
                         <div className="recordcard__content">
-                            <h2>日期：2023/05/05 23:00</h2>
+                            <h2>日期：{props.item}</h2>
                         </div>
                     </div>
                     <div>

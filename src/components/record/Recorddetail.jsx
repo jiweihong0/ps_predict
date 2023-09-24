@@ -5,6 +5,7 @@ import redress from '../../assets/redress.png';
 export default function Recorddetail(props) {
     const detailstate = props.detailstate;
     const consistdetail = props.consistdetail;
+    console.log(props);
     return (
         <div className="modal-overlay" onClick={detailstate} >
             <div className="recorddetail"onClick={consistdetail} >
