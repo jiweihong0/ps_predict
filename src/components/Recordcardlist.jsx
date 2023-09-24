@@ -3,10 +3,20 @@ import Recordcard from "./Reacordcard";
 
 export default function Recordcardlist() {
     return (
-        <div style={{backgroundColor:"#FFFBEB" ,display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" ,height:"100%",width:"100%"}}>
-            <div style={{marginTop:"30px"}}></div>
+        <div style={{backgroundColor:"#FFFBEB" ,display:"flex", flexDirection:"column", alignItems:"center" ,height:"100%",width:"100%",overflow:"hidden"}}>
+           
             <Recordcard  data = {123}/>
             <Recordcard />  
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
+            <Recordcard />
             <Recordcard />
             <Recordcard />
         </div>

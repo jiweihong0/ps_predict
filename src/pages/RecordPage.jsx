@@ -20,7 +20,7 @@ export default function RecordPage() {
     }
     
     return (
-        <div >
+        <div style={{height:"100vh"}}>
             <Header />
             <Recordcardlist/>
             <Footer/>
