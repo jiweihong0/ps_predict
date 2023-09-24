@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import PelvisDetectioncard from "../components/PelvisDetectioncard";
+import PelvisDetectioncard from "../components/pelvis/PelvisDetectioncard";
 
 
 

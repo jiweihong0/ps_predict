@@ -1,6 +1,6 @@
 import React from "react";
 import './pelvisdetectioncard.css';
-import pelvis from '../assets/pelvis.png';
+import pelvis from '../../assets/pelvis.png';
 
 export default function pelvisdetectioncard() {
 

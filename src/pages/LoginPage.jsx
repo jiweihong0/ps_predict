@@ -1,6 +1,6 @@
 import React from "react";
-import LoginInput from "../components/LoginInput";
-import LoginImage from "../components/LoginImage";
+import LoginInput from "../components/login/LoginInput";
+import LoginImage from "../components/login/LoginImage";
 const LogininPage = () => {
     return (
         <div className="h-screen bg-[#FFE7CC]/[.2] flex w-full flex-wrap ">

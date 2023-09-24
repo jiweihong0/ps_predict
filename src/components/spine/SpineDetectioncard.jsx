@@ -1,6 +1,6 @@
 import React from "react";
 import './spinedetectioncard.css';
-import spine from '../assets/spine.png';
+import spine from '../../assets/spine.png';
 
 export default function SpineDetectioncard() {
 

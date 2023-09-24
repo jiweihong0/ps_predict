@@ -1,6 +1,6 @@
 import React from "react";
-import SigninInput from "../components/SigninInput";
-import SigninImage from "../components/SigninImage";
+import SigninInput from "../components/signin/SigninInput";
+import SigninImage from "../components//signin/SigninImage";
 const SigninPage = () => {
     return (
         <div className="h-screen bg-[#ECFEFC] flex w-full flex-wrap ">

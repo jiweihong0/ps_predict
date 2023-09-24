@@ -1,6 +1,6 @@
 import React from 'react'
 import './SigninInput.css'
-import man from '../assets/man.png'
+import man from '../../assets/man.png'
 const SigninInput = () => {
     return (
         <div className="frame-5">

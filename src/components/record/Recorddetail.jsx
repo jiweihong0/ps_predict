@@ -1,6 +1,6 @@
 import React from "react";
 import './recorddetail.css';
-import redress from '../assets/redress.png';
+import redress from '../../assets/redress.png';
 
 export default function Recorddetail(props) {
     const detailstate = props.detailstate;

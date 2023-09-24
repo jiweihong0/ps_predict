@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import './recordcard.css';
-import right from '../assets/right.png';
-import correct from '../assets/correct.png';
+import right from '../../assets/right.png';
+import correct from '../../assets/correct.png';
 import Recorddetail from "./Recorddetail";
 
 export default function Recordcard(props) {

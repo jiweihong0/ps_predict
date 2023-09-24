@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/header/Header";
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import SpineDetectioncard from "../components/SpineDetectioncard";
-import LeftNavi from "../components/LeftNavi";
+import SpineDetectioncard from "../components/spine/SpineDetectioncard";
+import LeftNavi from "../components/rehabilitation/LeftNavi";
 
 
 function RehabilitationPage() {

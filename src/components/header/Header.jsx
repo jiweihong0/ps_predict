@@ -1,11 +1,10 @@
 // create header compoent
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
-import man from '../assets/man.png';
-import Xray from '../assets/Xray.png';
+import Xray from '../../assets/Xray.png';
 
 export default function Header() {
     const { currentUser, logout } = useAuth();
@@ -37,7 +36,7 @@ export default function Header() {
                             <Link to="/pelvis">脊椎偵測</Link>
                         </div>
                         <div className='userinfo'>
-                            <img src={man} alt="no image" />
+                            <img src={Xray} alt="no image" />
                             <button onClick={handleLogout}>王小明</button>
                         </div>
                     </div>

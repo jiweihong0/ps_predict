@@ -1,10 +1,10 @@
 import React from 'react'
 import './LoginImage.css'
-import Vector from '../assets/Vector.png'
-import VectorTop from '../assets/Vector_top.png'
-import Xray from '../assets/Xray.png'
+import Vector from '../../assets/Vector.png'
+import VectorTop from '../../assets/Vector_top.png'
+import Xray from '../../assets/Xray.png'
 import Lottie from 'lottie-react';
-import animationData from '../assets/animation.json';
+import animationData from '../../assets/animation.json';
 const LoginImage = () => {
   return (
     <div className="frame-6" >

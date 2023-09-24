@@ -5,9 +5,7 @@ export default function Footer() {
     return (
         <footer className="site-footer">
         <div className="footer-content">
-            <div className="footer-logo">
-                <img src="man.png" alt="圖"/>
-            </div>
+           
             <div className="footer-info">
                 <p>&copy; 2023 專題</p>
                 <p>地址：台北市大安區復興南路一段390號</p>
