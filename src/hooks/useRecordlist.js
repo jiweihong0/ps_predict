@@ -52,7 +52,7 @@ export default function useRecordlist() {
             if (response.ok) {
                 const responseData = await response.json();
                 console.log(responseData);
-                setRecord(responseData);
+                setdata(responseData);
             } else {
                 console.log("上傳失敗。");
                 setRecord(false);
