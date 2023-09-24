@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../components/header/Header';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import Recordcardlist from '../components/Recordcardlist';
+import Recordcardlist from '../components/record/Recordcardlist';
 import Footer from '../components/footer/Footer';
 
 export default function RecordPage() {
