@@ -96,3 +96,9 @@
     transform: rotate(90deg);
     border-radius: 6px;
 }
+video{
+    transform: scaleX(-1);
+}
+.spine_img{
+    transform: scaleX(-1);
+}
