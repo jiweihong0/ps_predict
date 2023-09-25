@@ -3,9 +3,12 @@ import './pelvisdetectioncard.css';
 import pelvis from '../../assets/pelvis.png';
 import useUpload from "../../hooks/useUpload";
 import Webcam from 'react-webcam'; // 添加 Webcam 导入
+// navigation
+import { useNavigate } from 'react-router-dom';
+
 
 export default function pelvisdetectioncard() {
-
+    const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
     const { isupload, filetobase64, upload } = useUpload();
 
@@ -20,6 +23,7 @@ export default function pelvisdetectioncard() {
 
     const handleDetection = (e) => {
         e.preventDefault();
+        navigate('/');
         const file = selectedFile;
         upload(file);
     }
