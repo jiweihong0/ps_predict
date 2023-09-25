@@ -11,9 +11,9 @@ export default function SpineDetectioncard() {
     const [toggle, settoggle] = useState(false);
     const webcamRef = useRef(null); // 添加 webcamRef
 
-    const handleFileChange = (e) => {
+    const handleFileChange = async(e) => {
         const file = e.target.files[0];
-        const filechangetype = filetobase64(file);
+        const filechangetype = await filetobase64(file);
         setSelectedFile(filechangetype);
     };
 
@@ -28,16 +28,10 @@ export default function SpineDetectioncard() {
         const screenshot = webcamRef.current.getScreenshot();
         if (screenshot) {
             settoggle({ photoURL: screenshot });
-        
-        }
-        if(selectedFile){
-            setSelectedFile(null);
-        }
-        else{
             const fileselect = screenshot.split(',')[1]
             setSelectedFile(fileselect);
+        
         }
-
     }
 
     const screenshotrelode = (e) => {
