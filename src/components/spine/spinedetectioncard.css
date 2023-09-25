@@ -98,6 +98,7 @@
 }
 video{
     transform: scaleX(-1);
+    margin-left: 15%;
 }
 .spine_img{
     transform: scaleX(-1);
