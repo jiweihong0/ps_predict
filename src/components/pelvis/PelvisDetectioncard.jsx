@@ -44,7 +44,7 @@ export default function pelvisdetectioncard() {
     return (
         <div className="pelvisdetectioncard">
             <div className="pelvisdetectioncard__content__area">
-                <div>
+                <div className="photocard_area">
 
                     <div className="pelvisdetectioncard__picture">
                         {/* 添加 Webcam 组件 */}

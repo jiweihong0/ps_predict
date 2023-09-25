@@ -43,14 +43,14 @@
 }
 .pelvisdetectioncard__picture{
     margin-top: 2%;
-    margin-left: 5%;
+    margin-left: 15%;
     width: 50%;
     height: 90%;
     background-color: #FFE7CC;
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 3%;
+  
 }
 /* last h2 margin top 5px */
 .pelvisdetectioncard__content>button{
@@ -97,50 +97,54 @@
     border-radius: 6px;
 }
 .loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid #FFF;
-    border-bottom-color: #FF3D00;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    }
+width: 48px;
+height: 48px;
+border: 5px solid #FFF;
+border-bottom-color: #FF3D00;
+border-radius: 50%;
+display: inline-block;
+box-sizing: border-box;
+animation: rotation 1s linear infinite;
+}
 
-    @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-    } 
+@keyframes rotation {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+} 
 
-    video{
-        transform: scaleX(-1);
-    }
-    .pelvis_img{
-        transform: scaleX(-1);
-    }
-    .pelvis_buttom{
-       
-        margin-top: 23%;
-        font-size: 30px;
-        font-weight: bold;
-        color: #333333;
-        background-color: #FFE7CC;
-        border: none;
-        cursor: pointer;
-        border-radius: 10px;
-        padding: 1px 20px;
-    }
-    .pelvis_buttom:hover{
-        color: #FF9685;
-    }
-    .buttom_area{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        padding: 0 5% 0 5%;
+video{
+    transform: scaleX(-1);
+}
+.pelvis_img{
+    transform: scaleX(-1);
+}
+.pelvis_buttom{
     
-    }
+    margin-top: 10%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFE7CC;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1px 20px;
+}
+.pelvis_buttom:hover{
+    color: #FF9685;
+}
+.buttom_area{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0 5% 0 5%;
+
+}
+.photocard_area{
+    width: 100%;
+    height: 100%;
+}
