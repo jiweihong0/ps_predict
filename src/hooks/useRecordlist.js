@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function useRecordlist() {
     const json =
@@ -43,6 +43,10 @@ export default function useRecordlist() {
         }
 
     };
+    useEffect(() => {
+        
+        fetachRecord();
+    }, []);
 
 
     return { fetachRecord, isRecord, isdata };
