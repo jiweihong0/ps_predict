@@ -22,7 +22,7 @@ export default function useUploadSpine() {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify({ username:"123",f_Image: filetostring })
+            body: JSON.stringify({ user_name:"123",f_Image: filetostring })
         });
         const data = await response.json();
         console.log(data);
