@@ -115,3 +115,32 @@
         transform: rotate(360deg);
     }
     } 
+
+    video{
+        transform: scaleX(-1);
+    }
+    .sp_img{
+        transform: scaleX(-1);
+    }
+    .pelvis_buttom{
+       
+        margin-top: 23%;
+        font-size: 30px;
+        font-weight: bold;
+        color: #333333;
+        background-color: #FFE7CC;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 1px 20px;
+    }
+    .pelvis_buttom:hover{
+        color: #FF9685;
+    }
+    .buttom_area{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 5% 0 5%;
+    
+    }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useUpload() {
+export default function useUploadSpine() {
     const [isupload, setUpload] = useState(false);
     
     const filetobase64 = (file) => {

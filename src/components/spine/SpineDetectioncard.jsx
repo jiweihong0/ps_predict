@@ -11,7 +11,7 @@ export default function SpineDetectioncard() {
     const [toggle, settoggle] = useState(false);
     const webcamRef = useRef(null); // 添加 webcamRef
 
-    const handleFileChange = async(e) => {
+    const handleFileChange = async (e) => {
         const file = e.target.files[0];
         const filechangetype = await filetobase64(file);
         setSelectedFile(filechangetype);
@@ -30,7 +30,7 @@ export default function SpineDetectioncard() {
             settoggle({ photoURL: screenshot });
             const fileselect = screenshot.split(',')[1]
             setSelectedFile(fileselect);
-        
+
         }
     }
 
@@ -42,23 +42,30 @@ export default function SpineDetectioncard() {
     return (
         <div className="spinedetectioncard">
             <div className="spinedetectioncard__content__area">
-                <div className="spinedetectioncard__picture">
-                    {/* 添加 Webcam 组件 */}
-                    {
-                        !toggle && <Webcam
-                            audio={false}
-                            ref={webcamRef}
-                            screenshotFormat="image/jpeg"
-                            videoConstraints={{ facingMode: "user" }}
-                        />
-                    }
-                    {
-                        toggle && <img src={toggle.photoURL} alt=""  className="spine_img"/>
-                    }
-                    
+                <div >
+
+                    <div className="spinedetectioncard__picture">
+                        {/* 添加 Webcam 组件 */}
+                        {
+                            !toggle && <Webcam
+                                audio={false}
+                                ref={webcamRef}
+                                screenshotFormat="image/jpeg"
+                                videoConstraints={{ facingMode: "user" }}
+                            />
+                        }
+                        {
+                            toggle && <img src={toggle.photoURL} alt="" className="spine_img" />
+                        }
+
+                    </div>
+                    <div className="buttom_area">
+                        <button onClick={screenshotrelode} className="spine_buttom">重新拍攝</button>
+
+                        <button onClick={handlescreenshot} className="spine_buttom">拍攝</button>
+                    </div>
+
                 </div>
-                <button onClick={handlescreenshot}>拍攝</button>
-                    <button onClick={screenshotrelode}>重新拍攝</button>
                 <div>
                     <div className="spinedetectioncard__content">
                         <h2>說明：</h2>
@@ -70,9 +77,9 @@ export default function SpineDetectioncard() {
                         <h2>6.詳細資料與建議請至紀錄查詢</h2>
                         <input type="file" name="" id="" onChange={handleFileChange} />
                         {
-                            isupload && 
+                            isupload &&
                             <>
-                            加載中<span className="loader"></span>
+                                加載中<span className="loader"></span>
                             </>
                         }
                         <button onClick={handleDetection}>開始</button>
