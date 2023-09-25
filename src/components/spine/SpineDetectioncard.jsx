@@ -6,14 +6,15 @@ import Webcam from 'react-webcam'; // 添加 Webcam 导入
 
 export default function SpineDetectioncard() {
     const [selectedFile, setSelectedFile] = useState(null);
-    const { upload, isupload } = useUploadSpine();
+    const { isupload, filetobase64, upload } = useUploadSpine();
 
     const [toggle, settoggle] = useState(false);
     const webcamRef = useRef(null); // 添加 webcamRef
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-        setSelectedFile(file);
+        const filechangetype = filetobase64(file);
+        setSelectedFile(filechangetype);
     };
 
     const handleDetection = (e) => {
@@ -33,7 +34,8 @@ export default function SpineDetectioncard() {
             setSelectedFile(null);
         }
         else{
-            setSelectedFile(screenshot);
+            const fileselect = screenshot.split(',')[1]
+            setSelectedFile(fileselect);
         }
 
     }
