@@ -27,6 +27,13 @@ export default function SpineDetectioncard() {
         const screenshot = webcamRef.current.getScreenshot();
         if (screenshot) {
             settoggle({ photoURL: screenshot });
+        
+        }
+        if(selectedFile){
+            setSelectedFile(null);
+        }
+        else{
+            setSelectedFile(screenshot);
         }
 
     }

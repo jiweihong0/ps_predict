@@ -5,12 +5,13 @@ export default function useUpload() {
 
     const startDetection = (selectedFile, callback) => {
         if (selectedFile) {
+            // selectedFile to base64 string
             const reader = new FileReader();
-            reader.readAsArrayBuffer(selectedFile);
+            reader.readAsDataURL(selectedFile);
             reader.onload = () => {
-                const arrayBuffer = reader.result;
+                const base64String = reader.result
                 setUpload(true);
-                callback({user_name:"123",f_image:arrayBuffer}); // 調用回調函數並傳遞結果
+                callback({user_name:"111",f_Image:base64String}); // 調用回調函數並傳遞結果
             }
         } else {
             console.log("請選擇一個文件再開始檢測。");
@@ -22,12 +23,12 @@ export default function useUpload() {
             console.log(result);
             try {
                 // 更換api
-                const response = await fetch("http://localhost:8500/authenticate", {
+                const response = await fetch("http://192.168.1.119:3000/api/upimage", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(data),
+                    body: result,
                 });
                 
                 if (response.ok) {
