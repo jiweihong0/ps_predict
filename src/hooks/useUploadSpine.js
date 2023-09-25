@@ -13,16 +13,19 @@ export default function useUpload() {
     }
 
     const upload = async (file) => {
+        // file to string
+        const filetostring = file.toString();
         console.log(file);
-        const response = await fetch('https://localhost:3000/api/upimage', {
+        const response = await fetch('http://192.168.1.119:3000/api/upimage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify({ username:"123",f_Image: file })
+            body: JSON.stringify({ username:"123",f_Image: filetostring })
         });
         const data = await response.json();
+        console.log(data);
 
     }
 
