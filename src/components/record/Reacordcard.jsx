@@ -1,40 +1,66 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import './recordcard.css';
 import right from '../../assets/right.png';
 import correct from '../../assets/correct.png';
+import danger from '../../assets/danger.png';
+import warning from '../../assets/warning.png';
 import Recorddetail from "./Recorddetail";
+
 
 export default function Recordcard(props) {
     const [toggle, settoggle] = useState(false);
-    
     const showdetail = (e) => {
         e.stopPropagation();
-       settoggle(!toggle);
+        settoggle(!toggle);
     }
-    const consistdetail = (e) => {   
+    const consistdetail = (e) => {
         e.stopPropagation();
         settoggle(toggle);
     }
+    
+    const statusImage = () => {
+        switch (props.item.status) {
+            case 1:
+                return correct;
+            case 2:
+                return danger;
+            case 3:
+                return warning;
+            default:
+                return correct; // 如果没有匹配的状态，返回默认图像
+        }
+    }
+    const statusMessage = () => {
+        switch (props.item.status) {
+            case 1:
+                return "correct";
+            case 2:
+                return "danger";
+            case 3:
+                return "warning";
+            default:
+                return "correct"; // 如果没有匹配的状态，返回默认图像
+        }
+    }
     return (
         <>
-        
-                <div className="recordcard" onClick={showdetail}>
-                    <div>
-                        <div className="recordcard__title">
-                            <h1>檢測結果：正常</h1>
-                            <img src={correct} alt="" />
-                        </div>
-                        <div className="recordcard__content">
-                            <h2>日期：{props.item}</h2>
-                        </div>
+            <div className="recordcard" onClick={showdetail}>
+                <div>
+                    <div className="recordcard__title">
+                        <h1>檢測結果：{statusMessage()}</h1>
+                        <img src={statusImage()} alt={`状态：${props.item.status}`} />
                     </div>
-                    <div>
-                        <img className = "right" src={right} alt="" />
+                    <div className="recordcard__content">
+                        <h2>日期：{props.item.date}</h2>
                     </div>
                 </div>
-                {toggle ? (
-            <Recorddetail detailstate={showdetail} consistdetail = {consistdetail} data={props.data}/>
-            ) :(console.log("no"))}
+                <div>
+                    <img className="right" src={right} alt="" />
+                </div>
+            </div>
+            {toggle ? (
+                <Recorddetail detailstate={showdetail} consistdetail={consistdetail} data={props.data} />
+            ) : (console.log("no"))}
         </>)
-        
+
 }

@@ -1,11 +1,27 @@
 import React from "react";
 import './recorddetail.css';
 import redress from '../../assets/redress.png';
+// import useRecorddetail from "../../hooks/useRecorddetail";
+// import { useState, useEffect } from "react";
 
 export default function Recorddetail(props) {
     const detailstate = props.detailstate;
     const consistdetail = props.consistdetail;
-    console.log(props);
+    
+    // useEffect(() => {
+    //     const {fetchRecord, isRecord, isdata, base64tofile } = useRecorddetail();
+
+    //     const fetchdata = fetchRecord(props.data.date);
+    //     console.log(fetchdata);
+    //     console.log(isdata);
+    //     console.log(isRecord);
+    //     console.log(base64tofile);
+    // }, []);
+
+
+
+
+    
     return (
         <div className="modal-overlay" onClick={detailstate} >
             <div className="recorddetail"onClick={consistdetail} >
@@ -24,7 +40,7 @@ export default function Recorddetail(props) {
                         <h2>檢測結果：需校正</h2>
                         <h2>建議復健動作：</h2>
                         <h2>橋式、深蹲、平板撐、下犬式、屈膝伸展</h2>
-                        <h2>檢查日期：2023/05/05 23:00</h2>
+                        <h2>檢查日期：{props.data.date}</h2>
                     </div>
                     <div className="recorddetail__line_group">
                         <div className="recorddetail__line">-</div>

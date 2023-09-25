@@ -11,9 +11,7 @@ export default function Recordcardlist() {
            
             {
                 isdata.userRelatedDatetime.map((item,index) => {
-                    return (
-                        <Recordcard key={index} item={item}  />
-                    )
+                    return <Recordcard key={index} item={item} data={isdata.userRelatedDatetime[index]}/>
                 })
             }
         </div>
