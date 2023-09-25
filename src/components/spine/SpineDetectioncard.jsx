@@ -42,7 +42,7 @@ export default function SpineDetectioncard() {
     return (
         <div className="spinedetectioncard">
             <div className="spinedetectioncard__content__area">
-                <div >
+                <div className="photocard_area">
 
                     <div className="spinedetectioncard__picture">
                         {/* 添加 Webcam 组件 */}
