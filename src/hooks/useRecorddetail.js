@@ -1,19 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 export default function useRecorddetail() {
+    const [isimage, setUpload] = useState(null);
+
     // base64 to file
-    const base64tofile = (base64, filename) => {
-        var arr = base64.split(',');
-        var mime = arr[0].match(/:(.*?);/)[1];
-        var bytes = atob(arr[1]);
-        var n = bytes.length;
-        var u8arr = new Uint8Array(n);
-        while (n--) {
-            u8arr[n] = bytes.charCodeAt(n);
+    const base64tofile = async (base64, filename) => {
+        // Decode the Base64 string to binary data
+        const binaryData = atob(base64);
+
+        // Create an ArrayBuffer to store the binary data
+        const arrayBuffer = new ArrayBuffer(binaryData.length);
+        const view = new Uint8Array(arrayBuffer);
+
+        // Populate the ArrayBuffer
+        for (let i = 0; i < binaryData.length; i++) {
+            view[i] = binaryData.charCodeAt(i);
         }
-        // return new File([u8arr], filename, { type: mime });
-        return new Blob([u8arr], { type: mime });
+
+        // Create a Blob from the ArrayBuffer
+        const blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+
+        // Create a File from the Blob
+        const file = new File([blob], filename);
+
+        // You can now use the 'file' object as needed
+        console.log('Converted file:', file);
+
+        // Convert the file to an image
+       
+        setUpload(URL.createObjectURL(file));
     }
+
 
     const json =
     {
@@ -33,19 +51,19 @@ export default function useRecorddetail() {
     const [isdata, setdata] = useState(json);
 
     const [isRecord, setRecord] = useState(true);
+    
     const fetchRecord = async (data) => {
         try {
-            const url = `http://localhost:3000/api/getDateImages/${"any5"}`;
+            const url = `http://192.168.1.119:3000/api/getDateImages/${"any5"}?datetime=${data}`;
             const response = await fetch(url, {
-                method: "get",
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
             });
             if (response.ok) {
                 const responseData = await response.json();
-                console.log(responseData);
+                base64tofile(responseData.userImage,"user.png")
                 setdata(responseData);
             } else {
                 console.log("上傳失敗。");
@@ -59,5 +77,9 @@ export default function useRecorddetail() {
 
     }
 
-    return { fetchRecord, isRecord, isdata, base64tofile };
+    
+
+   
+
+    return {  fetchRecord,isimage,isRecord, isdata, base64tofile };
 }

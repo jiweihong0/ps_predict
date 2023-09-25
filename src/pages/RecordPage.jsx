@@ -8,10 +8,10 @@ export default function RecordPage() {
    
     
     return (
-        <div style={{height:"100"}}>
+        <div style={{height:"100vh"}}>
             <Header />
             <Recordcardlist/>
-            <Footer/>
+            
         </div>
     );
 }
