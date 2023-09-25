@@ -16,13 +16,13 @@ export default function useUploadSpine() {
         // file to string
         const filetostring = file.toString();
         console.log(file);
-        const response = await fetch('http://192.168.1.119:3000/api/upimage', {
+        const response = await fetch('http://192.168.1.119:3000/api/sdimage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify({ user_name:"123",f_Image: filetostring })
+            body: JSON.stringify({ user_name:"123",s_Image: filetostring })
         });
         const data = await response.json();
         console.log(data);
