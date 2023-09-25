@@ -3,8 +3,11 @@ import './spinedetectioncard.css';
 import spine from '../../assets/spine.png';
 import useUploadSpine from "../../hooks/useUploadSpine";
 import Webcam from 'react-webcam'; // 添加 Webcam 导入
+// navigation
+import { useNavigate } from 'react-router-dom';
 
 export default function SpineDetectioncard() {
+    const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
     const { isupload, filetobase64, upload } = useUploadSpine();
 
@@ -18,6 +21,7 @@ export default function SpineDetectioncard() {
     };
 
     const handleDetection = (e) => {
+        navigate('/');
         e.preventDefault();
         const file = selectedFile;
         upload(file);
