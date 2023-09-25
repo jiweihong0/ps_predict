@@ -21,10 +21,10 @@ export default function SpineDetectioncard() {
     };
 
     const handleDetection = (e) => {
-        navigate('/');
         e.preventDefault();
         const file = selectedFile;
         upload(file);
+        navigate('/');
     }
 
     const handlescreenshot = (e) => {

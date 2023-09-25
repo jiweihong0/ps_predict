@@ -23,9 +23,9 @@ export default function pelvisdetectioncard() {
 
     const handleDetection = (e) => {
         e.preventDefault();
-        navigate('/');
         const file = selectedFile;
         upload(file);
+        navigate('/');
     }
 
     const handlescreenshot = (e) => {
