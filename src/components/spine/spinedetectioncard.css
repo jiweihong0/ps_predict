@@ -103,8 +103,8 @@ video{
     transform: scaleX(-1);
 }
 .spine_buttom{
-   
-    margin-top: 23%;
+   width: 80%;
+    margin-top: 12%;
     font-size: 30px;
     font-weight: bold;
     color: #333333;
