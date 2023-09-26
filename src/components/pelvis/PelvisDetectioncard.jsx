@@ -5,12 +5,14 @@ import useUpload from "../../hooks/useUpload";
 import Webcam from 'react-webcam'; // 添加 Webcam 导入
 // navigation
 import { useNavigate } from 'react-router-dom';
+import useTimer from "../../hooks/useTimer";
 
 
 export default function pelvisdetectioncard() {
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
     const { isupload, filetobase64, upload } = useUpload();
+    const { countdown, isCountingDown, setIsCountingDown } = useTimer();
 
     const [toggle, settoggle] = useState(false);
     const webcamRef = useRef(null); // 添加 webcamRef
@@ -21,6 +23,14 @@ export default function pelvisdetectioncard() {
         setSelectedFile(filechangetype);
     };
 
+    const handletime = (e) => {
+        e.preventDefault();
+        setIsCountingDown(true); // 开始倒计时
+        setTimeout(() => {
+            takeScreenshot(); // 10秒后自动拍照
+        }, 10000);
+    }
+
     const handleDetection = (e) => {
         e.preventDefault();
         const file = selectedFile;
@@ -28,21 +38,24 @@ export default function pelvisdetectioncard() {
         navigate('/');
     }
 
-    const handlescreenshot = (e) => {
-        e.preventDefault();
+    const takeScreenshot = () => {
         const screenshot = webcamRef.current.getScreenshot();
         if (screenshot) {
             settoggle({ photoURL: screenshot });
             const fileselect = screenshot.split(',')[1]
             setSelectedFile(fileselect);
-
         }
+        setIsCountingDown(false); // 拍照后停止倒计时
     }
 
     const screenshotrelode = (e) => {
         e.preventDefault();
         settoggle(false);
     }
+
+    const countdownDisplay = isCountingDown ? (
+        <div className="timer">剩餘時間: {countdown} 秒</div>
+    ) : null;
 
 
     return (
@@ -65,9 +78,13 @@ export default function pelvisdetectioncard() {
                         }
                     </div>
                     <div className="buttom_area">
+
+                        {countdownDisplay} {/* 显示倒计时时间 */}
+                    </div>
+                    <div className="buttom_area">
+                        <button onClick={handletime} className="pelvis_buttom">拍攝</button>
                         <button onClick={screenshotrelode} className="pelvis_buttom">重新拍攝</button>
 
-                        <button onClick={handlescreenshot} className="pelvis_buttom">拍攝</button>
                     </div>
 
                 </div>

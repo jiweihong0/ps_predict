@@ -17,6 +17,20 @@ export default function Recorddetail(props) {
     }, []);
    
     console.log(isimage);
+    const statusMessage = () => {
+        switch (props.data.status) {
+            case "1":
+                return "繼續保持";
+            case "2":
+                return "需矯正";
+            case "3":
+                return "繼續保持";
+            case "4":
+                return "需矯正";
+            default:
+                return "請詢問專門醫生"; // 如果没有匹配的状态，返回默认图像
+        }
+    }
     
 
 
@@ -35,7 +49,7 @@ export default function Recorddetail(props) {
                     <div className="recorddetail__content">
                         <h2>狀態：{isdata.status}</h2>
                         <h2>傾斜角度：{isdata.angle}度</h2>
-                        <h2>檢測結果：需校正</h2>
+                        <h2>檢測結果：{statusMessage()}</h2>
                         <h2>建議復健動作：</h2>
                         <h2>橋式、深蹲、平板撐、下犬式、屈膝伸展</h2>
                         <h2>檢查日期：{props.data.date}</h2>
@@ -46,7 +60,7 @@ export default function Recorddetail(props) {
                         <div className="recorddetail__line" />
                     </div>
                     <div>
-                        <img src={isimage} alt="" style={{width:"300px"}}/>
+                        <img src={isimage} alt="" style={{width:"100%",height:"100%",maxHeight:"600px",maxWidth:"600px"}}/>
                     </div>
                 </div>
 

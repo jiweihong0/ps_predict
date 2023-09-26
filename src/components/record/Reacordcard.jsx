@@ -20,11 +20,13 @@ export default function Recordcard(props) {
     
     const statusImage = () => {
         switch (props.item.status) {
-            case 1:
+            case "1":
                 return correct;
-            case 2:
-                return danger;
-            case 3:
+            case "2":
+                return warning;
+            case "3":
+                return correct;
+            case "4":
                 return warning;
             default:
                 return correct; // 如果没有匹配的状态，返回默认图像
@@ -32,12 +34,14 @@ export default function Recordcard(props) {
     }
     const statusMessage = () => {
         switch (props.item.status) {
-            case 1:
-                return "correct";
-            case 2:
-                return "danger";
-            case 3:
-                return "warning";
+            case "1":
+                return "脊椎正常";
+            case "2":
+                return "脊椎異常";
+            case "3":
+                return "骨盆正常";
+            case "4":
+                return "骨盆異常";
             default:
                 return "correct"; // 如果没有匹配的状态，返回默认图像
         }

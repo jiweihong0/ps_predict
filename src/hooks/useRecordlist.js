@@ -7,11 +7,11 @@ export default function useRecordlist() {
         userRelatedDatetime: [
             {
                 "date": "20230925_1746",
-                "status": 1
+                "status": "1"
             },
             {
                 "date": "20230925_1747",
-                "status": 2
+                "status": "2"
             }
         ]
     }

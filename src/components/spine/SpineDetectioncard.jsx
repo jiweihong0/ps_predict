@@ -2,20 +2,18 @@ import React, { useState, useRef, useEffect } from "react";
 import './spinedetectioncard.css';
 import spine from '../../assets/spine.png';
 import useUploadSpine from "../../hooks/useUploadSpine";
-import Webcam from 'react-webcam'; // 添加 Webcam 导入
+import Webcam from 'react-webcam'; 
 import { useNavigate } from 'react-router-dom';
 import useTimer from "../../hooks/useTimer";
 
 export default function SpineDetectioncard() {
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
-    const { isupload, filetobase64 } = useUploadSpine();
+    const { isupload, filetobase64, upload } = useUploadSpine();
     const {countdown, isCountingDown, setIsCountingDown} = useTimer();
 
 
     const [toggle, settoggle] = useState(false);
-    
-
     const webcamRef = useRef(null);
 
     const handleFileChange = async (e) => {
@@ -24,12 +22,19 @@ export default function SpineDetectioncard() {
         setSelectedFile(filechangetype);
     };
 
+    const handletime = (e) => {
+        e.preventDefault();
+        setIsCountingDown(true); 
+        setTimeout(() => {
+            takeScreenshot(); 
+        }, 10000);
+    }
+
     const handleDetection = (e) => {
         e.preventDefault();
-        setIsCountingDown(true); // 开始倒计时
-        setTimeout(() => {
-            takeScreenshot(); // 10秒后自动拍照
-        }, 10000);
+        const file = selectedFile;
+        upload(file);
+        navigate('/');
     }
 
     const takeScreenshot = () => {
@@ -39,7 +44,7 @@ export default function SpineDetectioncard() {
             const fileselect = screenshot.split(',')[1]
             setSelectedFile(fileselect);
         }
-        setIsCountingDown(false); // 拍照后停止倒计时
+        setIsCountingDown(false); // 拍照后停止
     }
 
     const screenshotrelode = (e) => {
@@ -47,7 +52,7 @@ export default function SpineDetectioncard() {
         settoggle(false);
     }
 
-    // 在倒计时状态下，显示剩余时间
+
     const countdownDisplay = isCountingDown ? (
         <div className="timer">剩餘時間: {countdown} 秒</div>
     ) : null;
@@ -78,9 +83,9 @@ export default function SpineDetectioncard() {
                      {countdownDisplay} {/* 显示倒计时时间 */}
                     </div>
                     <div className="buttom_area">
+                        <button onClick={handletime} className="spine_buttom">拍攝</button>
                         <button onClick={screenshotrelode} className="spine_buttom">重新拍攝</button>
 
-                        <button onClick={handleDetection} className="spine_buttom">拍攝</button>
                     </div>
 
                 </div>
