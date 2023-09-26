@@ -11,6 +11,10 @@ export default function useTimer() {
             return () => clearInterval(timer);
         }
     }, [isCountingDown, countdown]);
-    return { countdown, setCountdown, isCountingDown, setIsCountingDown };
+    const resset = () => {
+        setCountdown(10);
+        setIsCountingDown(false);
+    }
+    return { countdown, setCountdown, isCountingDown, setIsCountingDown, resset };
 
 }

@@ -12,9 +12,10 @@ export default function pelvisdetectioncard() {
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
     const { isupload, filetobase64, upload } = useUpload();
-    const { countdown, isCountingDown, setIsCountingDown } = useTimer();
+    const {countdown, isCountingDown, setIsCountingDown, resset} = useTimer();
 
-    const [toggle, settoggle] = useState(false);
+
+    const [toggle, settoggle] = useState(null);
     const webcamRef = useRef(null); // 添加 webcamRef
 
     const handleFileChange = async (e) => {
@@ -38,8 +39,8 @@ export default function pelvisdetectioncard() {
         navigate('/');
     }
 
-    const takeScreenshot = () => {
-        const screenshot = webcamRef.current.getScreenshot();
+    const takeScreenshot = async() => {
+        const screenshot =await webcamRef.current.getScreenshot();
         if (screenshot) {
             settoggle({ photoURL: screenshot });
             const fileselect = screenshot.split(',')[1]
@@ -50,7 +51,9 @@ export default function pelvisdetectioncard() {
 
     const screenshotrelode = (e) => {
         e.preventDefault();
-        settoggle(false);
+        resset();
+        settoggle(null);
+        handletime();
     }
 
     const countdownDisplay = isCountingDown ? (

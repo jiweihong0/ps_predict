@@ -10,10 +10,10 @@ export default function SpineDetectioncard() {
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
     const { isupload, filetobase64, upload } = useUploadSpine();
-    const {countdown, isCountingDown, setIsCountingDown} = useTimer();
+    const {countdown, isCountingDown, setIsCountingDown, resset} = useTimer();
 
 
-    const [toggle, settoggle] = useState(false);
+    const [toggle, settoggle] = useState(null);
     const webcamRef = useRef(null);
 
     const handleFileChange = async (e) => {
@@ -49,7 +49,9 @@ export default function SpineDetectioncard() {
 
     const screenshotrelode = (e) => {
         e.preventDefault();
-        settoggle(false);
+        resset();
+        settoggle(null);
+        handletime();
     }
 
 
