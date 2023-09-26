@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
 import Xray from '../../assets/Xray.png';
+import man from '../../assets/man.png';
 
 export default function Header() {
     const { currentUser, logout } = useAuth();
@@ -36,8 +37,9 @@ export default function Header() {
                             <Link to="/pelvis">脊椎偵測</Link>
                         </div>
                         <div className='userinfo'>
-                            <img src={Xray} alt="no image" />
-                            <button onClick={handleLogout}>王小明</button>
+                            <img src={man} alt="no image" />
+                            <div>王小明</div>
+                            <button onClick={handleLogout}>登出</button>
                         </div>
                     </div>
 

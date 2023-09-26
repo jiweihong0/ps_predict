@@ -1,18 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import './spinedetectioncard.css';
 import spine from '../../assets/spine.png';
 import useUploadSpine from "../../hooks/useUploadSpine";
 import Webcam from 'react-webcam'; // 添加 Webcam 导入
-// navigation
 import { useNavigate } from 'react-router-dom';
+import useTimer from "../../hooks/useTimer";
 
 export default function SpineDetectioncard() {
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
-    const { isupload, filetobase64, upload } = useUploadSpine();
+    const { isupload, filetobase64 } = useUploadSpine();
+    const {countdown, isCountingDown, setIsCountingDown} = useTimer();
+
 
     const [toggle, settoggle] = useState(false);
-    const webcamRef = useRef(null); // 添加 webcamRef
+    
+
+    const webcamRef = useRef(null);
 
     const handleFileChange = async (e) => {
         const file = e.target.files[0];
@@ -22,20 +26,20 @@ export default function SpineDetectioncard() {
 
     const handleDetection = (e) => {
         e.preventDefault();
-        const file = selectedFile;
-        upload(file);
-        navigate('/');
+        setIsCountingDown(true); // 开始倒计时
+        setTimeout(() => {
+            takeScreenshot(); // 10秒后自动拍照
+        }, 10000);
     }
 
-    const handlescreenshot = (e) => {
-        e.preventDefault();
+    const takeScreenshot = () => {
         const screenshot = webcamRef.current.getScreenshot();
         if (screenshot) {
             settoggle({ photoURL: screenshot });
             const fileselect = screenshot.split(',')[1]
             setSelectedFile(fileselect);
-
         }
+        setIsCountingDown(false); // 拍照后停止倒计时
     }
 
     const screenshotrelode = (e) => {
@@ -43,13 +47,18 @@ export default function SpineDetectioncard() {
         settoggle(false);
     }
 
+    // 在倒计时状态下，显示剩余时间
+    const countdownDisplay = isCountingDown ? (
+        <div className="timer">剩餘時間: {countdown} 秒</div>
+    ) : null;
+
+    
+
     return (
         <div className="spinedetectioncard">
             <div className="spinedetectioncard__content__area">
                 <div className="photocard_area">
-
                     <div className="spinedetectioncard__picture">
-                        {/* 添加 Webcam 组件 */}
                         {
                             !toggle && <Webcam
                                 audio={false}
@@ -61,12 +70,17 @@ export default function SpineDetectioncard() {
                         {
                             toggle && <img src={toggle.photoURL} alt="" className="spine_img" />
                         }
+                      
 
+                    </div>
+                    <div className="buttom_area">
+
+                     {countdownDisplay} {/* 显示倒计时时间 */}
                     </div>
                     <div className="buttom_area">
                         <button onClick={screenshotrelode} className="spine_buttom">重新拍攝</button>
 
-                        <button onClick={handlescreenshot} className="spine_buttom">拍攝</button>
+                        <button onClick={handleDetection} className="spine_buttom">拍攝</button>
                     </div>
 
                 </div>
