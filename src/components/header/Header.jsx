@@ -32,9 +32,9 @@ export default function Header() {
                         <div className='header_links'>
 
                             <Link className='link' to="/spine">骨盆偵測</Link>
+                            <Link className='link' to="/pelvis">脊椎偵測</Link>
                             <Link className='link' to="/">檢測紀錄</Link>
-                            <Link className='link' to="/Rehabilitation">復健動作</Link>
-                            <Link to="/pelvis">脊椎偵測</Link>
+                            <Link to="/Rehabilitation">復健動作</Link>
                         </div>
                         <div className='userinfo'>
                             <img src={man} alt="no image" />

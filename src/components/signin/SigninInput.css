@@ -61,8 +61,7 @@
     padding: 1px;
     color: #000000;
     left: 3%;
-    background-color: #FFFDF5;
-    
+    background:linear-gradient(180deg, #ECFEFC 50%,  #FFFDF5 50%);
     transform: translate(3%, -50%);
     z-index: 2;
     position: absolute;
@@ -75,7 +74,7 @@
     font-family: Inter;
     line-height: auto;
     color: #000000;
-    background-color: #FFFDF5;
+    background:linear-gradient(180deg, #ECFEFC 50%,  #FFFDF5 50%);
     left: 3%;
     transform: translate(3%, -50%);
     z-index: 2;
@@ -98,7 +97,7 @@
   }
   .password-frame-signin{
     position: relative;
-    width: 25vw;
+
     height: 10vh;
     margin-bottom: 35px;
     margin-top: 10px;
