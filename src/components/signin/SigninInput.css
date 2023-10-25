@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
   }
   .text-1 {
     text-align: left;
@@ -61,7 +62,7 @@
     padding: 1px;
     color: #000000;
     left: 3%;
-    background:linear-gradient(180deg, #ECFEFC 50%,  #FFFDF5 50%);
+    background:linear-gradient(180deg, rgb(255 231 204 / .2) 50%,  #FFFDF5 50%);
     transform: translate(3%, -50%);
     z-index: 2;
     position: absolute;
@@ -74,7 +75,7 @@
     font-family: Inter;
     line-height: auto;
     color: #000000;
-    background:linear-gradient(180deg, #ECFEFC 50%,  #FFFDF5 50%);
+    background:linear-gradient(180deg, rgb(255 231 204 / .2) 50% 50%,  #FFFDF5 50%);
     left: 3%;
     transform: translate(3%, -50%);
     z-index: 2;

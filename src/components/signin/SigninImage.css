@@ -2,6 +2,7 @@
     height: 100%;
     width: 100%;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
   }
   .Signimage {
     height: 100%;
@@ -21,6 +22,7 @@
     top: 550px;
     font-weight: bold;
     z-index: 1;
+    margin-top: 15%;
 
   }
   .s-group-1-1 {

@@ -21,6 +21,7 @@ const SigninImage = () => {
         </div>
         <div className='s-bone'>
           <Lottie animationData={animationData} />
+          
         </div>
         <p className="s-text-1">嘗試
           <br />不一樣的健檢</p>

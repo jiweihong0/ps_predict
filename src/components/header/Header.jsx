@@ -1,5 +1,5 @@
 // create header compoent
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import man from '../../assets/man.png';
 
 export default function Header() {
     const { currentUser, logout } = useAuth();
+    const [name, setName] = useState(localStorage.getItem('name'));
     const navigate = useNavigate();
 
     async function handleLogout() {
@@ -19,6 +20,9 @@ export default function Header() {
             console.log('Failed to log out');
         }
     }
+    
+  
+
 
     return (
         <header className="header">
@@ -38,7 +42,7 @@ export default function Header() {
                         </div>
                         <div className='userinfo'>
                             <img src={man} alt="no image" />
-                            <div>王小明</div>
+                            <div>{name}</div>
                             <button onClick={handleLogout}>登出</button>
                         </div>
                     </div>

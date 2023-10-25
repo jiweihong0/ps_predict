@@ -1,7 +1,7 @@
 import React from "react";
 import LoginInput from "../components/login/LoginInput";
 import LoginImage from "../components/login/LoginImage";
-import useLogin from "../hooks/useLogin";
+
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 const LogininPage = () => {
@@ -9,6 +9,7 @@ const LogininPage = () => {
     // const { isLogin , isToken} = useLogin();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLogin, setIsLogin] = useState(false);
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -17,13 +18,32 @@ const LogininPage = () => {
     const handlePassword = (e) => {
         setPassword(e.target.value);
     }
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (email === '' || password === '') {
+            alert('請輸入帳號密碼');
+            return;
+        }
+        // read user data from localstorage and find user data
+        const user = JSON.parse(localStorage.getItem('user')) || [];
+        const findUser = user.find((item) => item.email === email && item.password === password);
+        if (!findUser) {
+            alert('帳號密碼錯誤');
+            return;
+        }
+        // use findUser to set name in localstorage
+        localStorage.setItem('name', findUser.name);
+        alert('登入成功');
 
-    const { login, isLogin } = useLogin(); // 調用 useLogin 自訂 Hook 並解構返回值
-
-    const handleLogin = () => {
-        const credentials = { username: email, password: password };
-        login(credentials); // 調用 login 函數
+        setIsLogin(true);
+        // set email to localstorage
+        localStorage.setItem('email', email);
+        setTimeout(() => {
+            navigate('/');
+        }, 1000);
     }
+
+
    
     return (
         <>
