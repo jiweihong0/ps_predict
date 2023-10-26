@@ -6,7 +6,7 @@ import useRecordlist from "../../hooks/useRecordlist";
 export default function Recordcardlist() {
     const {isdata} = useRecordlist();
     return (
-        <div style={{backgroundColor:"#FFFBEB" ,display:"flex", flexDirection:"column", alignItems:"center" ,height:"100%",width:"100%",overflow:"hidden"}}>
+        <div style={{backgroundColor:"#FFFBEB" ,display:"flex", flexDirection:"column", alignItems:"center" ,height:"100%",width:"100%",overflow:"visible"}}>
            
             {
                 isdata.userRelatedDatetime.map((item,index) => {
