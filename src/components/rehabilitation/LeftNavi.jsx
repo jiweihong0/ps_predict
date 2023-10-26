@@ -8,11 +8,9 @@ export default function LeftNavi() {
     const [selected2, setSelected2] = useState(true);
 
     const handleSelect = () => {
-        console.log(selected);
         setSelected(!selected);
     };
     const handleSelect2 = () => {
-        console.log(selected2);
         setSelected2(!selected2);
     };
     return (

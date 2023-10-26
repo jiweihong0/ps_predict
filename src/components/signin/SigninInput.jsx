@@ -9,7 +9,6 @@ const SigninInput = (props) => {
         e.preventDefault();
         navigate('/login');
     }
-    console.log(data.name[0]);
     return (
         <div className="frame-5">
             <div className="frame-title">

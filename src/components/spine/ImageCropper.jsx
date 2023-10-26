@@ -4,7 +4,6 @@ import 'cropperjs/dist/cropper.css';
 import './imagecropper.css';
 
 const ImageCropper = (props) => {
- console.log(props);
 const {src,cropper, handleFileChanges, handleCrop, croppedImage} = props;
   return (
     <div className='imgcrop_frame'>
@@ -24,7 +23,6 @@ const {src,cropper, handleFileChanges, handleCrop, croppedImage} = props;
             autoCropArea={1}
             checkOrientation={false} // https://github.com/fengyuanchen/cropperjs/issues/671
             guides={true}
-     
             className='imgcrop'
           />
           <button onClick={handleCrop} className='uploadStyle' >裁切圖片</button>

@@ -21,7 +21,6 @@ export default function SpineDetectioncard() {
     const [src, setSrc] = useState(null);
     const [croppedImage, setCroppedImage] = useState(null);
     const cropper = useRef();
-    console.log(croppedImage);
 
     const handleFileChanges = (e) => {
         const file = e.target.files[0];
@@ -55,7 +54,7 @@ export default function SpineDetectioncard() {
 
     const handleDetection = (e) => {
         e.preventDefault();
-        const file = src;
+        const file = croppedImage;
         upload(file);
         navigate('/');
     }

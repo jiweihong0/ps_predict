@@ -4,7 +4,6 @@ import 'cropperjs/dist/cropper.css';
 import './imagecropper.css';
 
 const ImageCropper = (props) => {
- console.log(props);
 const {src,cropper, handleFileChanges, handleCrop, croppedImage} = props;
   return (
     <div className='imgcrop_frame'>

@@ -53,8 +53,9 @@ export default function useRecorddetail() {
     const [isRecord, setRecord] = useState(true);
     
     const fetchRecord = async (data) => {
+        const namea = localStorage.getItem('name');
         try {
-            const url = `http://localhost:3000/api/getDateImages/${"any5"}?datetime=${data}`;
+            const url = `http://192.168.1.110:3000/api/getDateImages/${namea}?datetime=${data}`;
             const response = await fetch(url, {
                 method: "GET",
                 headers: {

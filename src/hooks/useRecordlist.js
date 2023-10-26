@@ -20,8 +20,9 @@ export default function useRecordlist() {
 
     const [isRecord, setRecord] = useState(true);
     const fetachRecord = async (data) => {
+        const namea = localStorage.getItem('name');
         try {
-            const url = `http://localhost:3000/api/getUserImages/${"any5"}`;
+            const url = `http://192.168.1.110:3000/api/getUserImages/${namea}`;
             const response = await fetch(url, {
                 method: "get",
                 headers: {

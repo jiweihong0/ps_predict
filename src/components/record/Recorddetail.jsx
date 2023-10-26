@@ -16,7 +16,6 @@ export default function Recorddetail(props) {
         fetchRecord(props.data.date);
     }, []);
    
-    console.log(isimage);
     const statusMessage = () => {
         switch (props.data.status) {
             case "1":

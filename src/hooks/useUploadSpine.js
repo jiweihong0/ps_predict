@@ -12,20 +12,21 @@ export default function useUploadSpine() {
         });
     }
 
+
     const upload = async (file) => {
         // file to string
-        const filetostring = file.toString();
-        console.log(file);
-        const response = await fetch('http://localhost:3000/api/sdimage', {
+        const filetostringa = file.split(',')[1];
+        const filetostring = filetostringa.toString();
+        const namea = localStorage.getItem('name');
+        const response = await fetch('http://192.168.1.110:3000/api/sdimage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-
-            body: JSON.stringify({ user_name:"any5",s_Image: filetostring })
+            
+            body: JSON.stringify({ user_name:namea,s_Image: filetostring })
         });
         const data = await response.json();
-        console.log(data);
 
     }
 

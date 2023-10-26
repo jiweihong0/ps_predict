@@ -56,7 +56,7 @@ export default function pelvisdetectioncard() {
 
     const handleDetection = (e) => {
         e.preventDefault();
-        const file = src;
+        const file = croppedImage;
         upload(file);
         navigate('/');
     }
