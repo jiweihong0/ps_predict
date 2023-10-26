@@ -1,0 +1,33 @@
+.imgcrop_frame{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    
+   
+  }
+.croppedImage{
+   height: 100%;
+   width: 100%;
+   
+   
+}
+.imgcrop{
+   height: 500px;
+   width: 500px;
+}
+.croppera{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cropperimg{
+    gap:10px;
+}

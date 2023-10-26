@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import './spinedetectioncard.css';
-import spine from '../../assets/spine.png';
 import useUploadSpine from "../../hooks/useUploadSpine";
 import ImageCropper from "./ImageCropper";
 
@@ -19,7 +18,7 @@ export default function SpineDetectioncard() {
     const { countdown, isCountingDown, setIsCountingDown, resset } = useTimer();
     const [takeshot, settakeshot] = useState(false);
 
-    const [src, setSrc] = useState(spineyu);
+    const [src, setSrc] = useState(null);
     const [croppedImage, setCroppedImage] = useState(null);
     const cropper = useRef();
     console.log(croppedImage);
@@ -45,12 +44,6 @@ export default function SpineDetectioncard() {
 
     const [toggle, settoggle] = useState(null);
     const webcamRef = useRef(null);
-
-    const handleFileChange = async (e) => {
-        const file = e.target.files[0];
-        const filechangetype = await filetobase64(file);
-        setSelectedFile(filechangetype);
-    };
 
     const handletime = (e) => {
         e.preventDefault();
@@ -103,6 +96,10 @@ export default function SpineDetectioncard() {
         settoggle(null);
         handletime();
     }
+    useEffect(() => {
+        setSrc(spineyu);
+    }, []);
+
 
 
     const countdownDisplay = isCountingDown ? (
