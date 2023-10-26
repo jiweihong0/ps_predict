@@ -32,6 +32,7 @@
     display: contents;
     justify-content: space-between;
     white-space: nowrap;
+    
  
 }
 .header__logo{
@@ -39,6 +40,7 @@
     flex-direction: row;
     width: 18%;
     position: relative;
+    margin-right: 3%;
 }
 
 .header__logo__text{

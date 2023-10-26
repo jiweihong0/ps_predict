@@ -2,16 +2,46 @@ import React, { useState, useRef, useEffect } from "react";
 import './spinedetectioncard.css';
 import spine from '../../assets/spine.png';
 import useUploadSpine from "../../hooks/useUploadSpine";
-import Webcam from 'react-webcam'; 
+import ImageCropper from "./ImageCropper";
+
 import { useNavigate } from 'react-router-dom';
 import useTimer from "../../hooks/useTimer";
+import Camera from "./camera";
+import camerapng from '../../assets/camera.png';
+import spineyu from '../../assets/spineyu.jpeg';
+
 
 export default function SpineDetectioncard() {
     const navigate = useNavigate();
+
     const [selectedFile, setSelectedFile] = useState(null);
     const { isupload, filetobase64, upload } = useUploadSpine();
-    const {countdown, isCountingDown, setIsCountingDown, resset} = useTimer();
+    const { countdown, isCountingDown, setIsCountingDown, resset } = useTimer();
+    const [takeshot, settakeshot] = useState(false);
 
+    const [src, setSrc] = useState(spineyu);
+    const [croppedImage, setCroppedImage] = useState(null);
+    const cropper = useRef();
+    console.log(croppedImage);
+
+    const handleFileChanges = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+            setSrc(reader.result);
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const handleCrop = () => {
+        if (cropper.current && cropper.current.cropper) {
+            const croppedCanvas = cropper.current.cropper.getCroppedCanvas();
+            if (croppedCanvas) {
+                const croppedImage = croppedCanvas.toDataURL();
+                setCroppedImage(croppedImage);
+            }
+        }
+    };
 
     const [toggle, settoggle] = useState(null);
     const webcamRef = useRef(null);
@@ -24,28 +54,48 @@ export default function SpineDetectioncard() {
 
     const handletime = (e) => {
         e.preventDefault();
-        setIsCountingDown(true); 
+        setIsCountingDown(true);
         setTimeout(() => {
-            takeScreenshot(); 
+            takeScreenshot();
         }, 10000);
     }
 
     const handleDetection = (e) => {
         e.preventDefault();
-        const file = selectedFile;
+        const file = src;
         upload(file);
         navigate('/');
     }
 
     const takeScreenshot = () => {
         const screenshot = webcamRef.current.getScreenshot();
+
         if (screenshot) {
-            settoggle({ photoURL: screenshot });
-            const fileselect = screenshot.split(',')[1]
-            setSelectedFile(fileselect);
+            const image = new Image();
+            image.onload = () => {
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+
+                // 圖像水平翻轉
+                canvas.width = image.width;
+                canvas.height = image.height;
+                ctx.setTransform(-1, 0, 0, 1, image.width, 0);
+                ctx.drawImage(image, 0, 0, image.width, image.height);
+
+                // 轉換為DataURL
+                const flippedScreenshot = canvas.toDataURL("image/jpeg");
+
+                settoggle({ photoURL: flippedScreenshot });
+                const fileselect = flippedScreenshot.split(",")[1];
+                setSelectedFile(fileselect);
+                setSrc(flippedScreenshot);
+            };
+
+            image.src = screenshot;
         }
-        setIsCountingDown(false); // 拍照后停止
-    }
+        setIsCountingDown(false); // 拍照停止
+    };
+
 
     const screenshotrelode = (e) => {
         e.preventDefault();
@@ -59,37 +109,24 @@ export default function SpineDetectioncard() {
         <div className="timer">剩餘時間: {countdown} 秒</div>
     ) : null;
 
-    
+    const handletakephoto = (e) => {
+        e.preventDefault();
+        settakeshot(!takeshot);
+
+    }
+
 
     return (
         <div className="spinedetectioncard">
             <div className="spinedetectioncard__content__area">
+
                 <div className="photocard_area">
-                    <div className="spinedetectioncard__picture">
-                        {
-                            !toggle && <Webcam
-                                audio={false}
-                                ref={webcamRef}
-                                screenshotFormat="image/jpeg"
-                                videoConstraints={{ facingMode: "user" }}
-                            />
-                        }
-                        {
-                            toggle && <img src={toggle.photoURL} alt="" className="spine_img" />
-                        }
-                      
-
-                    </div>
-                    <div className="buttom_area">
-
-                     {countdownDisplay} {/* 显示倒计时时间 */}
-                    </div>
-                    <div className="buttom_area">
-                        <button onClick={handletime} className="spine_buttom">拍攝</button>
-                        <button onClick={screenshotrelode} className="spine_buttom">重新拍攝</button>
-
-                    </div>
-
+                    {
+                        <ImageCropper src={src} cropper={cropper} handleFileChanges={handleFileChanges} handleCrop={handleCrop} croppedImage={croppedImage} />
+                    }
+                    {
+                        takeshot && <Camera handletakephoto={handletakephoto} webcamRef={webcamRef} toggle={toggle} countdownDisplay={countdownDisplay} handletime={handletime} screenshotrelode={screenshotrelode} />
+                    }
                 </div>
                 <div>
                     <div className="spinedetectioncard__content">
@@ -100,13 +137,24 @@ export default function SpineDetectioncard() {
                         <h2>4.等待檢測結束</h2>
                         <h2>5.結束時畫面會呈現骨盆狀態</h2>
                         <h2>6.詳細資料與建議請至紀錄查詢</h2>
-                        <input type="file" name="" id="" onChange={handleFileChange} />
+
                         {
                             isupload &&
                             <>
                                 加載中<span className="loader"></span>
                             </>
                         }
+                        <div className="takeshot_buttonframe">
+                            <button className="takeshot_frame" onClick={handletakephoto}>拍攝 <img src={camerapng} alt="" className="iconstyle" /></button>
+                            <input id="upload" type="file" accept="image/*" onChange={handleFileChanges} />
+                            <label type="button" htmlFor="upload" >
+                                <div className="uploadStyle">
+
+                                    選擇檔案
+                                </div>
+                            </label>
+                            
+                        </div>
                         <button onClick={handleDetection}>開始</button>
                     </div>
                 </div>
