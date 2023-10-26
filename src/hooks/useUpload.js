@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function useUpload() {
     const [isupload, setUpload] = useState(false);
+    const [loading, setLoading] = useState(false);
     
     const filetobase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -26,11 +27,12 @@ export default function useUpload() {
             body: JSON.stringify({ user_name:namea,f_Image: filetostring })
         });
         const data = await response.json();
+        setLoading(false);
 
 
     }
 
-    return { isupload, filetobase64, upload };
+    return { isupload, filetobase64, upload ,setLoading,loading };
 
 
 }

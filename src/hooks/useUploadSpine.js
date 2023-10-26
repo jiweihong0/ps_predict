@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function useUploadSpine() {
     const [isupload, setUpload] = useState(false);
+    const [loading, setLoading] = useState(false);
     
     const filetobase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -15,6 +16,7 @@ export default function useUploadSpine() {
 
     const upload = async (file) => {
         // file to string
+        setLoading(true);
         const filetostringa = file.split(',')[1];
         const filetostring = filetostringa.toString();
         const namea = localStorage.getItem('name');
@@ -26,11 +28,12 @@ export default function useUploadSpine() {
             
             body: JSON.stringify({ user_name:namea,s_Image: filetostring })
         });
+        setLoading(false);
         const data = await response.json();
 
     }
 
-    return { isupload, filetobase64, upload };
+    return { isupload, filetobase64, upload, setLoading, loading };
 
 
 }

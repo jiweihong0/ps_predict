@@ -14,7 +14,7 @@ export default function SpineDetectioncard() {
     const navigate = useNavigate();
 
     const [selectedFile, setSelectedFile] = useState(null);
-    const { isupload, filetobase64, upload } = useUploadSpine();
+    const { isupload, filetobase64, upload, loading, setLoading } = useUploadSpine();
     const { countdown, isCountingDown, setIsCountingDown, resset } = useTimer();
     const [takeshot, settakeshot] = useState(false);
 
@@ -56,7 +56,6 @@ export default function SpineDetectioncard() {
         e.preventDefault();
         const file = croppedImage;
         upload(file);
-        navigate('/');
     }
 
     const takeScreenshot = () => {
@@ -151,6 +150,12 @@ export default function SpineDetectioncard() {
                             </label>
                             
                         </div>
+                        {
+                            loading &&
+                            <>
+                                <div className="loader"></div>
+                            </>
+                        }
                         <button onClick={handleDetection}>開始</button>
                     </div>
                 </div>

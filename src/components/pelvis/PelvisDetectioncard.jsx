@@ -14,7 +14,7 @@ import ImageCropper from "./ImageCropper";
 export default function pelvisdetectioncard() {
     const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState(null);
-    const { isupload, filetobase64, upload } = useUpload();
+    const { isupload, filetobase64, upload, setLoading, loading } = useUpload();
     const { countdown, isCountingDown, setIsCountingDown, resset } = useTimer();
     const [takeshot, settakeshot] = useState(false);
 
@@ -58,7 +58,7 @@ export default function pelvisdetectioncard() {
         e.preventDefault();
         const file = croppedImage;
         upload(file);
-        navigate('/');
+        setLoading(true);
     }
 
     const takeScreenshot = () => {
@@ -152,6 +152,12 @@ export default function pelvisdetectioncard() {
 
                         </div>
                         <button onClick={handleDetection}>開始</button>
+                        {
+                            loading &&
+                            <>
+                                加載中<span className="loader"></span>
+                            </>
+                        }
 
                     </div>
                 </div>
