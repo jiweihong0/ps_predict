@@ -7,7 +7,7 @@ export default function RecordPage() {
    
     
     return (
-        <div style={{minHeight:"100vh",height: "100%" }}>
+        <div style={{minHeight:"100vh",height: "100%", backgroundColor:"#FFFBEB" }}>
             <Header />
             <Recordcardlist/>
             
