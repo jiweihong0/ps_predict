@@ -4,12 +4,14 @@ import LoginImage from "../components/login/LoginImage";
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import usecheckUserPermissions from "../hooks/usecheckUserPermissions";
 const LogininPage = () => {
     const navigate = useNavigate();
     // const { isLogin , isToken} = useLogin();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLogin, setIsLogin] = useState(false);
+    
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -24,6 +26,7 @@ const LogininPage = () => {
             alert('請輸入帳號密碼');
             return;
         }
+
         // read user data from localstorage and find user data
         const user = JSON.parse(localStorage.getItem('user')) || [];
         const findUser = user.find((item) => item.email === email && item.password === password);
@@ -34,7 +37,9 @@ const LogininPage = () => {
         // use findUser to set name in localstorage
         localStorage.setItem('name', findUser.name);
         alert('登入成功');
-
+        if (findUser.email === 'admin') {
+            localStorage.setItem('isAdmin', true);
+        }
         setIsLogin(true);
         // set email to localstorage
         localStorage.setItem('email', email);

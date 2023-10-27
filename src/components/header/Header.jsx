@@ -1,16 +1,18 @@
 // create header compoent
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
 import Xray from '../../assets/Xray.png';
 import man from '../../assets/man.png';
+import usecheckUserPermissions from '../../hooks/usecheckUserPermissions';
 
 export default function Header() {
     const { currentUser, logout } = useAuth();
     const [name, setName] = useState(localStorage.getItem('name'));
     const navigate = useNavigate();
+    const { hasPermission } = usecheckUserPermissions();
 
     async function handleLogout() {
         try {
@@ -20,17 +22,16 @@ export default function Header() {
             console.log('Failed to log out');
         }
     }
-    
-  
+    console.log(hasPermission);
 
 
     return (
         <header className="header">
             <div className="header__logo">
-                <img  src={Xray} alt="no image" />
+                <img src={Xray} alt="no image" />
                 <Link className='header__logo__text' to="/">PS症狀分析</Link>
             </div>
-            <div className="header__links">  
+            <div className="header__links">
                 {currentUser ? (
                     <div className='link_all'>
                         <div className='header_links'>
@@ -39,8 +40,12 @@ export default function Header() {
                             <Link className='link' to="/pelvis">脊椎偵測</Link>
                             <Link className='link' to="/">檢測紀錄</Link>
                             <Link to="/Rehabilitation">復健動作</Link>
+
                         </div>
                         <div className='userinfo'>
+                            {
+                                hasPermission ? <Link className='linka' to="/admin">管理</Link> : <></>
+                            }
                             <img src={man} alt="no image" />
                             <div>{name}</div>
                             <button onClick={handleLogout}>登出</button>
