@@ -1,0 +1,50 @@
+.cardarea{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+
+    align-items: center;
+    
+}
+.title{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+
+}
+.carddetailarea{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10%;
+   
+}
+.cardh2{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.cardol{
+   font-size: 25px;
+   width: 70%;
+}
+.cardbutton{
+ 
+    margin-top: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #FFE7CC;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1px 20px;
+}
+.cardbutton:hover{
+    background-color: #FFD1A5;
+}

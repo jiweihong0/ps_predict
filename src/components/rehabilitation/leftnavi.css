@@ -35,3 +35,22 @@
     background-color: #ECF9FF;
     border-bottom: 1px solid #000;
 }
+.leftnavi_title_nexta{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    background-color: #f9fafa;
+    border-bottom: 1px solid #000;
+  
+}
+.leftnavi_title_nexta:hover{
+    background-color: #ECF9FF;
+}
+.leftnavidropbox{
+    width: 100%;
+}
