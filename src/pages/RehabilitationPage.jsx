@@ -7,14 +7,14 @@ import useLeftnavi from "../hooks/useLeftnavi";
 
 
 function RehabilitationPage() {
-    const {selectedCategories, selectedItem,setSelectedCategories, handleSelect, handleItemClick, rehabCategories} = useLeftnavi();
+    const {sport,startdefault,selectedCategories, selectedItem,setSelectedCategories, handleSelect, handleItemClick, rehabCategories} = useLeftnavi();
 
     return ( 
         <>
         <Header />
         <div style={{backgroundColor:"#FFFBEB", width:"100%",height:"100vh",display:"flex"}}>
             
-            <LeftNavi selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} handleSelect={handleSelect} handleItemClick={handleItemClick}  rehabCategories={rehabCategories}/>
+            <LeftNavi sport={sport} startdefault={startdefault} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories} handleSelect={handleSelect} handleItemClick={handleItemClick}  rehabCategories={rehabCategories}/>
             {/* <SpineDetectioncard/> */}
             <Card name={selectedItem}/>
          

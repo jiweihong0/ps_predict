@@ -7,7 +7,8 @@ import useLeftnavi from "../../hooks/useLeftnavi";
 
 export default function Card(props) {
     const { name } = props;
-    const{startre} = useLeftnavi();
+    const{startre,startdefine} = useLeftnavi();
+
 
     const imageMap = {
         "復健動作": right, 
@@ -18,6 +19,11 @@ export default function Card(props) {
     };
 
     const img = imageMap[name] || right; 
+
+    const handleclick = async(name) => {
+        const img = await imageMap[name] ? startre(name) : startdefine(name);
+        
+    }
 
     return (
         <div className="cardarea">
@@ -36,7 +42,7 @@ export default function Card(props) {
                 </div>
                 <img src={img} alt="Image" />
             </div>
-            <button className="cardbutton" onClick={()=>startre(name)}>開始復健</button>
+            <button className="cardbutton" onClick={()=>handleclick(name)}>開始復健</button>
         </div>
     );
 }
