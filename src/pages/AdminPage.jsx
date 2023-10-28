@@ -1,23 +1,35 @@
-import React from "react";
+import React,{useState} from "react";
 import Header from "../components/header/Header";
-import PelvisDetectioncard from "../components/pelvis/PelvisDetectioncard";
 import { Navigate } from "react-router-dom";
 import usecheckUserPermissions from "../hooks/usecheckUserPermissions";
+import LeftNavi from "../components/admin/LeftNavi";
+import RecordlistAdmin from "../components/admin/RecordlistAdmin";
+import SpineDetectioncard from "../components/custompose/SpineDetectioncard";
 
 
 
 
 function AdminPage() {
+    const [open, setOpen] = useState(false);
     const { hasPermission } = usecheckUserPermissions();
 
+    const handleonClick = (a) => {
+        setOpen(a);
+    }
+  
     return (
         <>
             {
                 hasPermission ?
                     <div style={{ backgroundColor: "#FFFBEB", width: "100%", height: "100vh" }}>
                         <Header />
-                        <p>你好</p>
+                        <LeftNavi handleonClick={handleonClick} />
+                        {
+                            open ? <RecordlistAdmin /> : <SpineDetectioncard />
+                        }
+                    
                     </div>
+
                     : <Navigate to="/login" />
             }
 

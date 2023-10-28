@@ -1,7 +1,7 @@
 import React from "react";
 import './recorddetail.css';
 import redress from '../../assets/redress.png';
-import useRecorddetail from "../../hooks/useRecorddetail";
+import useRecorddetaila from "../../hooks/useRecorddetaila";
 import { useState, useEffect } from "react";
 
 export default function Recorddetail(props) {
@@ -9,7 +9,7 @@ export default function Recorddetail(props) {
     const consistdetail = props.consistdetail;
 
 
-    const { fetchRecord,isimage, isdata, base64tofile } = useRecorddetail();
+    const { fetchRecord,isimage, isdata, base64tofile } = useRecorddetaila();
     const handleFetch = async () => {
         const fetchedData = await fetchRecord(props.data.date);
     }

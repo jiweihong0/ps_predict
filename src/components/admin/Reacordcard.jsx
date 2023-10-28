@@ -46,6 +46,7 @@ export default function Recordcard(props) {
                 return "correct"; // 如果没有匹配的状态，返回默认图像
         }
     }
+
     return (
         <>
             <div className="recordcard" onClick={showdetail}>
@@ -63,7 +64,7 @@ export default function Recordcard(props) {
                 </div>
             </div>
             {toggle ? (
-                <Recorddetail detailstate={showdetail} consistdetail={consistdetail} data={props.data} id={props.id}/>
+                <Recorddetail detailstate={showdetail} consistdetail={consistdetail} data={props.data} />
             ) : (console.log("no"))}
         </>)
 

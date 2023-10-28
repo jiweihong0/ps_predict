@@ -21,8 +21,8 @@ export default function useLeftnavi() {
 
     const startre = (name) => {
         const textconvert = {
-            "復健動作": "sport1",
-            "深蹲":"sport1",
+            "復健動作": "sport1.txt",
+            "深蹲":"sport1.txt",
             "屈膝伸展": "sport2",
             "下犬式": "sport3",
      
@@ -30,7 +30,7 @@ export default function useLeftnavi() {
         const fetchname = textconvert[name];
         console.log(fetchname);
         try{
-            const url = `http://192.168.1.110:3000/api/getSport/${fetchname}`;
+            const url = `http://192.168.1.110:3000/api/getDecidedSport/${fetchname}`;
             const response = fetch(url, {
                 method: "POST",
                 headers: {
