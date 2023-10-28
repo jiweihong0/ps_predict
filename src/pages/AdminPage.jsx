@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Header from "../components/header/Header";
 import { Navigate } from "react-router-dom";
 import usecheckUserPermissions from "../hooks/usecheckUserPermissions";
@@ -16,19 +16,21 @@ function AdminPage() {
     const handleonClick = (a) => {
         setOpen(a);
     }
-  
+
     return (
         <>
             {
                 hasPermission ?
-                    <div style={{ backgroundColor: "#FFFBEB", width: "100%", height: "100vh" }}>
+                    <>
                         <Header />
-                        <LeftNavi handleonClick={handleonClick} />
-                        {
-                            open ? <RecordlistAdmin /> : <SpineDetectioncard />
-                        }
-                    
-                    </div>
+                        <div style={{ backgroundColor: "#FFFBEB", width: "100%", minHeight: "100vh",display:"flex" }}>
+                            <LeftNavi handleonClick={handleonClick} />
+                            {
+                                open ? <RecordlistAdmin /> : <SpineDetectioncard />
+                            }
+
+                        </div>
+                    </>
 
                     : <Navigate to="/login" />
             }

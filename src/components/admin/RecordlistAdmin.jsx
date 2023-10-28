@@ -21,9 +21,9 @@ export default function RecordlistAdmin() {
     return (
         <>
             {
-                open ? <button onClick={handleonClick}>back</button> : null
+                open ? <button onClick={handleonClick} style={{display:"inline-flex",fontSize:"20px",fontWeight:"bold",whiteSpace:"nowrap"}}> {"<"}返回</button> : null
             }
-            <div style={{ backgroundColor: "#FFFBEB", display: "flex", flexDirection: "column", alignItems: "center", height: "100%", width: "100%", overflow: "visible" }}>
+            <div style={{ backgroundColor: "#FFFBEB", display: "flex", flexDirection: "row", alignItems: "center", height: "100%", width: "100%", overflow: "visible",  }}>
 
                 {
                     open ? <Recordcardlist data={isdata2}  /> : // isdata.userFolders is an array, so we can use map() to iterate over its
