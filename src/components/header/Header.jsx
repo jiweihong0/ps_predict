@@ -1,6 +1,5 @@
-// create header compoent
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
@@ -13,6 +12,10 @@ export default function Header() {
     const [name, setName] = useState(localStorage.getItem('name'));
     const navigate = useNavigate();
     const { hasPermission } = usecheckUserPermissions();
+    const location = useLocation();
+
+    // 使用状态变量来记录选中的菜单项
+    const [activeLink, setActiveLink] = useState(location.pathname);
 
     async function handleLogout() {
         try {
@@ -22,8 +25,6 @@ export default function Header() {
             console.log('Failed to log out');
         }
     }
-    console.log(hasPermission);
-
 
     return (
         <header className="header">
@@ -35,23 +36,40 @@ export default function Header() {
                 {currentUser ? (
                     <div className='link_all'>
                         <div className='header_links'>
-
-                            <Link className='link' to="/spine">骨盆偵測</Link>
-                            <Link className='link' to="/pelvis">脊椎偵測</Link>
-                            <Link className='link' to="/">檢測紀錄</Link>
-                            <Link to="/Rehabilitation">復健動作</Link>
-
+                            <Link
+                                className={`link ${activeLink === '/spine' ? 'active' : ''}`}
+                                to="/spine"
+                            >
+                                骨盆偵測
+                            </Link>
+                            <Link
+                                className={`link ${activeLink === '/pelvis' ? 'active' : ''}`}
+                                to="/pelvis"
+                            >
+                                脊椎偵測
+                            </Link>
+                            <Link
+                                className={`link ${activeLink === '/' ? 'active' : ''}`}
+                                to="/"
+                            >
+                                檢測紀錄
+                            </Link>
+                            <Link
+                                className={`link ${activeLink === '/Rehabilitation' ? 'active' : ''}`}
+                                to="/Rehabilitation"
+                            >
+                                復健動作
+                            </Link>
                         </div>
-                        <div className='userinfo'>
+                        <div className='userinfo' style={{marginLeft:"10px"}}>
                             {
-                                hasPermission ? <Link className='linka' to="/admin">管理</Link> : <></>
+                                hasPermission ? <Link  className={`link ${activeLink === '/admin' ? 'active' : ''}`} to="/admin" style={{padding:"10px"}} >管理</Link> : <></>
                             }
                             <img src={man} alt="no image" />
                             <div>{name}</div>
                             <button onClick={handleLogout}>登出</button>
                         </div>
                     </div>
-
                 ) : (
                     <div>
                         <Link to="/signin">註冊</Link>

@@ -126,12 +126,9 @@ export default function SpineDetectioncard() {
                 <div>
                     <div className="spinedetectioncard__content">
                         <h2>說明：</h2>
-                        <h2>1.測身站在畫面中央</h2>
-                        <h2>2.保持平常習慣的姿勢</h2>
-                        <h2>3.盡量不讓手臂擋到腰部及臀部</h2>
-                        <h2>4.等待檢測結束</h2>
-                        <h2>5.結束時畫面會呈現骨盆狀態</h2>
-                        <h2>6.詳細資料與建議請至紀錄查詢</h2>
+                        <textarea name="" id="" cols="30" rows="10" defaultValue={"輸入說明"}>
+
+                        </textarea>
 
                         {
                             isupload &&

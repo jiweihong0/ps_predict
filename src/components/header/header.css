@@ -84,3 +84,16 @@
     margin-left: 3%;
     margin-top: 11%;
 }
+.header__links .link {
+    color: #000; /* 初始顏色 - 請根據你的設計更改 */
+    transition: color 0.2s; /* 添加顏色變化的過渡效果，時間可以根據需要調整 */
+  }
+  
+  .header__links .link:hover {
+    color: #00f; /* 鼠標懸停時的顏色 - 請根據你的設計更改 */
+  }
+  
+  .header__links .link.active {
+    color: #f00; /* 選中時的顏色 - 請根據你的設計更改 */
+  }
+  
