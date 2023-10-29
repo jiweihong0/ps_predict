@@ -11,16 +11,14 @@ export default function Recordcardadmin(props) {
         <>
             <div className="recordcardadmin" onClick={() => props.handleFetch(props.item)}>
                 <div>
-                    <div className="recordcard__title" >
+                    <div className="recordcard__title_admin" >
                         <h1>姓名:{props.item}</h1>
                     </div>
                 </div>
                 <div>
-                    <img className="right" src={right} alt="" />
+                    <img className="rightadmin" src={right} alt="" />
                 </div>
             </div>
-          
-
         </>)
 
 }

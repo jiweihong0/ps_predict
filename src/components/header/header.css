@@ -90,10 +90,10 @@
   }
   
   .header__links .link:hover {
-    color: #00f; /* 鼠標懸停時的顏色 - 請根據你的設計更改 */
+    color: #f00; /* 鼠標懸停時的顏色 - 請根據你的設計更改 */
   }
   
   .header__links .link.active {
-    color: #f00; /* 選中時的顏色 - 請根據你的設計更改 */
+    color: #00f /* 選中時的顏色 - 請根據你的設計更改 */
   }
   

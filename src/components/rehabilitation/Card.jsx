@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import './Card.css';
-import right from '../../assets/right.png';
+import image from '../../assets/image.png';
 import correct from '../../assets/correct.png';
 import useLeftnavi from "../../hooks/useLeftnavi";
 
@@ -11,14 +11,11 @@ export default function Card(props) {
 
 
     const imageMap = {
-        "復健動作": right, 
-        "深蹲": correct,
-        "屈膝伸展": correct,
-        "下犬式": correct,
- 
+        "復健動作": image, 
+        "深蹲": image,
     };
 
-    const img = imageMap[name] || right; 
+    const img = imageMap[name] || image; 
 
     const handleclick = async(name) => {
         const img = await imageMap[name] ? startre(name) : startdefine(name);
