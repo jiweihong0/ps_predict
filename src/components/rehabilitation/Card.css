@@ -17,7 +17,7 @@
 }
 .carddetailarea{
     width: 100%;
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,7 +31,7 @@
 }
 .cardol{
    font-size: 25px;
-   width: 70%;
+   width: 100%;
 }
 .cardbutton{
  
@@ -47,4 +47,7 @@
 }
 .cardbutton:hover{
     background-color: #FFD1A5;
+}
+.carddetail{
+    min-width: 300px;
 }

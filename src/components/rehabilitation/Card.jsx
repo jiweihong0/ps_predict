@@ -19,7 +19,7 @@ export default function Card(props) {
     const img = imageMap[name] || image;
 
     const handleclick = async (name) => {
-        const img = await imageMap[name] ? startre(name) : startdefine(name);
+        const img = await imageMap[name] ? startre(name) : startdefine(selectedItemdetails.sport_number);
 
     }
     console.log(selectedItemdetails);
