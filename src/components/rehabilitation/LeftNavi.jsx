@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './leftnavi.css';
 
 export default function LeftNavi(props) {
-    const     {sport,startdefault,selectedCategories, setSelectedCategories, handleSelect, handleItemClick, rehabCategories} = props;
+    const {sport,startdefault,selectedCategories, setSelectedCategories, handleSelect, handleItemClick, rehabCategories} = props;
 
     const handleslelects = async(index) => {
         await handleSelect(index);

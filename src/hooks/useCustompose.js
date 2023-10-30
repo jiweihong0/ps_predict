@@ -3,6 +3,8 @@ import { useState } from "react";
 export default function useCustompose() {
     const [isupload, setUpload] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [namea, setName] = useState('輸入名稱');
+    const [comments, setComments] = useState('說明');
     
     const filetobase64 = (file) => {
         return new Promise((resolve, reject) => {
@@ -19,14 +21,14 @@ export default function useCustompose() {
         setLoading(true);
         const filetostringa = file.split(',')[1];
         const filetostring = filetostringa.toString();
-        const namea = localStorage.getItem('name');
+        
         const response = await fetch('http://192.168.1.110:3000/api/updateSport', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             
-            body: JSON.stringify({ user_name:namea,s_Image: filetostring })
+            body: JSON.stringify({ sport_name:namea,s_Image: filetostring,comments:comments })
         });
         setLoading(false);
         const data = await response.json();
@@ -34,7 +36,7 @@ export default function useCustompose() {
 
     }
 
-    return { isupload, filetobase64, upload, setLoading, loading };
+    return {setComments, setName,isupload, filetobase64, upload, setLoading, loading };
 
 
 }

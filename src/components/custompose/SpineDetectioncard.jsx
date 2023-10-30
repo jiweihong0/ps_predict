@@ -14,7 +14,7 @@ export default function SpineDetectioncard() {
     const navigate = useNavigate();
 
     const [selectedFile, setSelectedFile] = useState(null);
-    const { isupload, filetobase64, upload, loading, setLoading } = useCustompose();
+    const { setComments,setName,isupload, filetobase64, upload, loading, setLoading } = useCustompose();
     const { countdown, isCountingDown, setIsCountingDown, resset } = useTimer();
     const [takeshot, settakeshot] = useState(false);
 
@@ -126,11 +126,9 @@ export default function SpineDetectioncard() {
                 <div>
                     <div className="spinedetectioncard__content">
                         <h2>新增復健名稱：</h2>
-                        <input type="text" placeholder="輸入名稱" />
+                        <input type="text" onChange={(e) => setName(e.target.value)} placeholder="輸入名稱"/>
                         <h2>說明：</h2>
-                        <textarea name="" id="" cols="30" rows="10" defaultValue={"輸入說明"}>
-
-                        </textarea>
+                        <textarea onChange={(e) => setComments(e.target.value)} defaultValue="說明" />
 
                         {
                             isupload &&
