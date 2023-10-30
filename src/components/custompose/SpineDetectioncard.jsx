@@ -125,6 +125,8 @@ export default function SpineDetectioncard() {
                 </div>
                 <div>
                     <div className="spinedetectioncard__content">
+                        <h2>新增復健名稱：</h2>
+                        <input type="text" placeholder="輸入名稱" />
                         <h2>說明：</h2>
                         <textarea name="" id="" cols="30" rows="10" defaultValue={"輸入說明"}>
 

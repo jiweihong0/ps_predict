@@ -34,7 +34,7 @@ const {src,cropper, handleFileChanges, handleCrop, croppedImage} = props;
       {croppedImage && (
         <div className='cropperimg'>
           <img src={croppedImage} alt="Cropped" className='croppedImage'  />
-          <h2>確認上傳圖片</h2>
+          <h2>預覽裁切圖片</h2>
         </div>
       )}
     </div>
