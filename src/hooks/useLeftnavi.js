@@ -154,12 +154,11 @@ export default function useLeftnavi() {
         
             if (response.ok) {
                 const responseData = await response.json();
-                console.log(responseData);
+            
                  // delay 15s
                  setTimeout(() => {
                     setLoading(false);
                 }, 18000);
-                setLoading(false);
             }
         }
         catch(error){
