@@ -8,7 +8,7 @@ import useRecorddetail from "../../hooks/useRecorddetail";
 
 export default function Card(props) {
     const { name, selectedItemdetails, isimage } = props;
-    const { startre, startdefine } = useLeftnavi();
+    const { startre, startdefine, loading } = useLeftnavi();
 
 
     const imageMap = {
@@ -23,7 +23,7 @@ export default function Card(props) {
 
     }
     console.log(selectedItemdetails);
-    
+
     return (
 
         <>
@@ -44,7 +44,17 @@ export default function Card(props) {
                         </div>
                         <img src={img} alt="Image" />
                     </div>
-                    <button className="cardbutton" onClick={() => handleclick(name)}>開始復健</button>
+                    <div>
+
+                        <button className="cardbutton" onClick={() => handleclick(name)}>開始復健</button>
+                        {
+                            loading &&
+                            <span>
+                                加載中<span className="loader"></span>
+                            </span>
+                        }
+                    </div>
+
                 </div> :
                 <div className="cardarea">
                     <p className="title">{selectedItemdetails.sport_name}</p>
@@ -59,9 +69,19 @@ export default function Card(props) {
                             <h2 className="cardh2">醫生建議：</h2>
                             <p className="cardol">{selectedItemdetails.comments}</p>
                         </div>
-                        <img src={isimage} alt="Image"  style={{minHeight:"450px"}}/>
+                        <img src={isimage} alt="Image" style={{ minHeight: "450px" }} />
                     </div>
-                    <button className="cardbutton" onClick={() => handleclick(name)}>開始復健</button>
+                    <div>
+
+                        <button className="cardbutton" onClick={() => handleclick(name)}>開始復健</button>
+                        {
+                            loading &&
+                            <span>
+                                加載中<span className="loader"></span>
+                            </span>
+                        }
+                    </div>
+
                 </div>}
 
         </>

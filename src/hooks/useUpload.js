@@ -27,6 +27,7 @@ export default function useUpload() {
             body: JSON.stringify({ user_name:namea,f_Image: filetostring })
         });
         const data = await response.json();
+        alert(data.message);
         setLoading(false);
 
 

@@ -4,6 +4,7 @@ export default function useLeftnavi() {
     const [selectedCategories, setSelectedCategories] = useState([true, true, true, true]);
     const [selectedItem, setSelectedItem] = useState("復健動作");
     const [selectedItemdetails, setSelectedItemdetails] = useState("a");
+    const [loading, setLoading] = useState(false);
     const rehabCategories = [
         { title: '預設復健段動作', items: ['深蹲'] },
         { title: '醫師建議動作', items: ["屈膝抱踝"] },
@@ -48,6 +49,7 @@ export default function useLeftnavi() {
 
    
     const getItemdetails = async(name) => {
+       
         try{
             const url = `http://192.168.1.110:3000/api/getSportData?sport_name=${name}`;
             const response = await fetch(url, {
@@ -61,10 +63,12 @@ export default function useLeftnavi() {
                 const responseData = await response.json();
                 setSelectedItemdetails(responseData);
                 base64tofile(responseData.image, "sport.jpg");
+              
             }
         }
         catch(error){
             console.error("上傳錯誤:", error);
+            
         }
     }
     const handleItemClick = async(item) => {
@@ -74,6 +78,7 @@ export default function useLeftnavi() {
    
 
     const startre = async(name) => {
+        setLoading(true);
         const textconvert = {
             "復健動作": "sport1.txt",
             "深蹲":"sport1.txt",
@@ -92,10 +97,14 @@ export default function useLeftnavi() {
             });
             if (response.ok) {
                 const responseData = await response.json();
-                console.log(responseData);
+                // delay 15s
+                setTimeout(() => {
+                    setLoading(false);
+                }, 18000);
                 return responseData;
             } else {
                 console.log("上傳失敗。");
+                setLoading(false);
             }
             
         }
@@ -119,10 +128,12 @@ export default function useLeftnavi() {
                 const newrehabCategories = [...rehabCategories];
                 newrehabCategories[1].items = responseData.sport_files;
                 setSport(newrehabCategories);
+              
 
                 // console.log(responseData);
             } else {
                 console.log("上傳失敗。");
+     
             }
         }
         catch(error){
@@ -131,6 +142,7 @@ export default function useLeftnavi() {
     }
     
     const startdefine = async(name) => {
+        setLoading(true);
         try{
             const url = `http://192.168.1.110:3000/api/getDefineSport/${name}`;
             const response = await fetch(url, {
@@ -143,10 +155,16 @@ export default function useLeftnavi() {
             if (response.ok) {
                 const responseData = await response.json();
                 console.log(responseData);
+                 // delay 15s
+                 setTimeout(() => {
+                    setLoading(false);
+                }, 18000);
+                setLoading(false);
             }
         }
         catch(error){
             console.error("上傳錯誤:", error);
+            setLoading(false);
         }
     }
     
@@ -158,5 +176,5 @@ export default function useLeftnavi() {
 
 
 
-    return {isimage ,selectedItemdetails,startdefine,sport,startdefault,startre,selectedCategories, selectedItem,handleSelect, handleItemClick, rehabCategories };
+    return {loading,isimage ,selectedItemdetails,startdefine,sport,startdefault,startre,selectedCategories, selectedItem,handleSelect, handleItemClick, rehabCategories };
 }

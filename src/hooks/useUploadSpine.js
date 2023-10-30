@@ -30,6 +30,7 @@ export default function useUploadSpine() {
         });
         setLoading(false);
         const data = await response.json();
+        alert(data.message);
 
     }
 

@@ -147,13 +147,13 @@ export default function SpineDetectioncard() {
                             </label>
                             
                         </div>
+                        <button onClick={handleDetection}>診斷</button>
                         {
                             loading &&
                             <>
-                                <div className="loader"></div>
+                                加載中<span className="loader"></span>
                             </>
                         }
-                        <button onClick={handleDetection}>開始</button>
                     </div>
                 </div>
             </div>
