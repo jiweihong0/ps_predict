@@ -21,8 +21,7 @@ const Camera = (props) => {
 
             </div>
             <div className="buttom_area">
-
-                {data.countdownDisplay} {/* 顯示倒數計時 */}
+                <div style={{ backgroundColor: "green", color: "white" }}>{data.countdownDisplay}</div>   
             </div>
             <div className="buttom_area">
 
