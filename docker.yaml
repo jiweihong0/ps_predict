@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  node:
+    image: node:latest
+    container_name: my_node_app
+    working_dir: /root/ps_predict
+    volumes:
+      - .:/root/ps_predict
+    ports:
+      - "3000:3000"
